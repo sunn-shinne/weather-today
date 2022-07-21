@@ -1,1 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: Questrial;
+  src: url("./assets/fonts/Questrial-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: normal;
+  src: url("./assets/fonts/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 300;
+  src: url("./assets/fonts/OpenSans-Light.ttf");
+}
+
+
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --primary: #98CCFD;
+  --primary-dark: #A4A4A4;
+  --secondary: #E0E0E0;
+  --secondary-dark: #575757;
+  --text-dark: #2C2C2C;
+  --text-light: #FFFFFF;
+
+  // themes colors
+  --morning: rgba(248, 187, 224, 0.5);
+  --afternoon: rgba(187, 211, 248, 0.15);
+  --evening: rgba(255, 148, 50, 0.44);
+  --night: rgba(139, 105, 172, 0.44);
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  height: 100%;
+
+  body {
+    box-sizing: border-box;
+  
+    height: 100%;
+    
+    overflow-x: hidden;
+    background-color: var(--white);
+  
+    color: var(--text-dark);
+    font: normal 17px/21px "Open Sans", sans-serif;  
+  }
+
+  h1 {
+    color: var(--primary-dark);
+    font-size: 41px;
+    font: 41px/1 Questrial, sans-serif;
+  }
+
+  h2 {
+    color: var(--black);
+    font: 300 22px/30px "Open Sans", sans-serif;
+    font-weight: 300;
+  }
+}
+
+
