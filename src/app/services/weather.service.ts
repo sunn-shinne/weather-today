@@ -24,8 +24,8 @@ export class WeatherService {
     return this.http.get<Forecast>(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=${langShort}&units=metric&appid=${environment.openWeather.API_key}`);
   }
 
-  getCoordinatesByLocationName(cityName: string, countryCode: string): Observable<CityCoordinates>{
-    return this.http.get<CityCoordinates>(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName},${countryCode}&limit=1&appid=${environment.openWeather.API_key}`)
+  getCoordinatesByLocationName(cityName: string, countryCode: string): Observable<CityCoordinates[]>{
+    return this.http.get<CityCoordinates[]>(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName},${countryCode}&limit=1&appid=${environment.openWeather.API_key}`)
   }
 
 }
