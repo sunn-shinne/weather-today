@@ -16,8 +16,12 @@ export class WeatherService {
   //private currentWeather: BehaviorSubject<ICurrentWeather> = new BehaviorSubject<ICurrentWeather>
   //currentWeather$: Observable<ICurrentWeather> = this.currentWeather.asObservable()
 
-  getCurrentWeather(latitude: string, longitude: string, langShort: string): Observable<CurrentWeather> {
+  getCurrentWeatherByCoordinates(latitude: string, longitude: string, langShort: string): Observable<CurrentWeather> {
     return this.http.get<CurrentWeather>(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=${langShort}&units=metric&appid=${environment.openWeather.API_key}`);
+  }
+
+  getCurrentWeatherByCity(cityName: string): Observable<CurrentWeather>{
+    return this.http.get<CurrentWeather>(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${environment.openWeather.API_key}`)
   }
 
   getForecast(latitude: string, longitude: string, langShort: string): Observable<Forecast>{

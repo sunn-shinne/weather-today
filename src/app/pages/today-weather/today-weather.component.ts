@@ -20,15 +20,13 @@ export class TodayWeatherComponent implements OnInit {
     navigator.geolocation.getCurrentPosition(
       (pos: GeolocationPosition) => {
         this.crd = pos.coords;
-        this.weatherService.getCurrentWeather(this.crd.latitude, this.crd.longitude, 'ru').subscribe({
+        this.weatherService.getCurrentWeatherByCoordinates(this.crd.latitude, this.crd.longitude, 'ru').subscribe({
           next: (value) => this.currentWeather = value,
           complete: () => console.log(this.currentWeather) // TODO: Show data in template
         });
       },
       (err) => {
-        this.weatherService.getCoordinatesByLocationName('Moscow','ru').pipe(
-          concatMap((res1: CityCoordinates[]) => this.weatherService.getCurrentWeather(res1[0].lat.toString(), res1[0].lon.toString(), 'ru')),
-        ).subscribe({
+        this.weatherService.getCurrentWeatherByCity('Moscow').subscribe({
           next: (value) => this.currentWeather = value,
           complete: () => console.log(this.currentWeather) // TODO: Show data in template
         });
