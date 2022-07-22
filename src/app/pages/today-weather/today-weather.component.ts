@@ -27,7 +27,7 @@ export class TodayWeatherComponent implements OnInit {
       },
       (err) => {
         this.weatherService.getCoordinatesByLocationName('Moscow','ru').pipe(
-          concatMap((res1: CityCoordinates[]) => this.weatherService.getCurrentWeather(res1[0].lat.toString(), res1[0].lon.toString(), res1[0].country)),
+          concatMap((res1: CityCoordinates[]) => this.weatherService.getCurrentWeather(res1[0].lat.toString(), res1[0].lon.toString(), 'ru')),
         ).subscribe({
           next: (value) => this.currentWeather = value,
           complete: () => console.log(this.currentWeather) // TODO: Show data in template
