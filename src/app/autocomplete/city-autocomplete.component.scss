@@ -1,0 +1,30 @@
+.select-city {
+  position: relative;
+  display: flex;
+
+  width: 350px;
+  height: 40px;
+  margin-right: 20px;
+
+  .select-city__input {
+    flex-grow: 1;
+
+    box-sizing: border-box;
+    padding: 7px 20px 7px;
+
+    outline: none;
+    border: 1px solid var(--primary-dark);
+  }
+}
+
+  .select-city::after {
+    display: flex;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 5px;
+    
+    content: url('../../assets/icons/location.svg');
+  }
