@@ -1,17 +1,17 @@
-import {ICoord, ICurrentWeather} from "./ICurrentWeather";
+import {Coord, CurrentWeather} from "./CurrentWeather";
 
-export interface IForecast {
+export interface Forecast {
   cod?: number | string; // Internal parameter
   message?: string; //Internal parameter
   cntA?: number; //number of timestamps returned in the API response
-  list: ICurrentWeather[];
-  city?: ICity;
+  list: CurrentWeather[];
+  city?: City;
 }
 
-export interface ICity{
+export interface City{
   id: number;
   name: string;
-  coord: ICoord;
+  coord: Coord;
   country: string;
   population: number;
   timezone: number;

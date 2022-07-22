@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ICityCoordinates } from 'src/app/interface/ICityCoordinates';
-import { ICurrentWeather } from 'src/app/interface/ICurrentWeather';
-import { IForecast } from 'src/app/interface/IForecast';
+import { CityCoordinates } from 'src/app/interface/CityCoordinates';
+import { CurrentWeather } from 'src/app/interface/CurrentWeather';
+import { Forecast } from 'src/app/interface/Forecast';
 import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
@@ -10,9 +10,9 @@ import { WeatherService } from 'src/app/services/weather.service';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
-  currentWeather: ICurrentWeather = {} as ICurrentWeather;
-  forecast: IForecast = {} as IForecast;
-  cityCoordinates: ICityCoordinates = {} as ICityCoordinates;
+  currentWeather: CurrentWeather = {} as CurrentWeather;
+  forecast: Forecast = {} as Forecast;
+  cityCoordinates: CityCoordinates = {} as CityCoordinates;
 
   constructor(public weatherService: WeatherService) { }
 

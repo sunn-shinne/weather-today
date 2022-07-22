@@ -1,13 +1,13 @@
-export interface ICurrentWeather{
-  coord: ICoord;
-  weather: IWeather[]; //(more info Weather condition codes https://openweathermap.org/weather-conditions)  
+export interface CurrentWeather{
+  coord: Coord;
+  weather: Weather[]; //(more info Weather condition codes https://openweathermap.org/weather-conditions)  
   base: string; // Internal parameter
-  main: IWeatherMain;
+  main: WeatherMain;
   visibility?: number; //Visibility, meter. The maximum value of the visibility is 10km
-  wind?: IWind;
-  clouds?: IClouds;
-  rain?: IRain;
-  snow?: ISnow;
+  wind?: Wind;
+  clouds?: Clouds;
+  rain?: Rain;
+  snow?: Snow;
   dt: number; // Time of data calculation, unix, UTC
   sys:{
     type?: number; //Internal parameter
@@ -23,39 +23,39 @@ export interface ICurrentWeather{
   cod: number | string; //Internal parameter
 }
 
-export interface IWeather{
+export interface Weather{
   id: number;          // Weather condition id
   main: string ;       // Group of weather parameters (Rain, Snow, Extreme etc.)
   description: string; // Weather condition within the group. You can get the output in your language. Learn more
   icon: string;        // Weather icon id
 }
 
-export interface ICoord{
+export interface Coord{
   lon: number; // City geo location, longitude
   lat: number; // City geo location, latitude
 }
 
-export interface IWind{
+export interface Wind{
   speed: number; //Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour.
   deg: number;   //Wind direction, degrees (meteorological)
   gust: number;  //Wind gust. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour
 }
 
-export interface IClouds{
+export interface Clouds{
   all: number; // Cloudiness, %
 }
 
-export interface IRain{
+export interface Rain{
   oneH: number;     // Rain volume for the last 1 hour, mm
   threeH?: number;  // Rain volume for the last 3 hours, mm
 } 
 
-export interface ISnow{
+export interface Snow{
   oneH: number;     // Snow volume for the last 1 hour, mm
   threeH?: number;  // Snow volume for the last 3 hour, mm
 }
 
-export interface IWeatherMain{
+export interface WeatherMain{
   temp: number;       //Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
   feels_like: number; //Temperature. This temperature parameter accounts for the human perception of weather. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
   pressure: number;   //Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa
