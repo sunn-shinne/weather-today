@@ -1,8 +1,14 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+
   height: 40px;
 
   padding: 10px;
 
+  .header__controls {
+    display: flex;
+  }
 }
 
 .header__logo {
