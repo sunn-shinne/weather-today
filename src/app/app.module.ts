@@ -12,6 +12,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CityAutocompleteComponent } from './autocomplete/city-autocomplete.component';
 import { LangToggleComponent } from './lang-toggle/lang-toggle.component';
+import { NavsComponent } from './navs/navs.component';
+import { TodayWeatherComponent } from './today-weather/today-weather.component';
+import { TomorrowWeatherComponent } from './tomorrow-weather/tomorrow-weather.component';
+import { SevenDaysWeatherComponent } from './seven-days-weather/seven-days-weather.component';
+import { SixteenDaysWeatherComponent } from './sixteen-days-weather/sixteen-days-weather.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +24,11 @@ import { LangToggleComponent } from './lang-toggle/lang-toggle.component';
     HeaderComponent,
     CityAutocompleteComponent,
     LangToggleComponent,
+    NavsComponent,
+    TodayWeatherComponent,
+    TomorrowWeatherComponent,
+    SevenDaysWeatherComponent,
+    SixteenDaysWeatherComponent,
   ],
   imports: [
     BrowserAnimationsModule,
