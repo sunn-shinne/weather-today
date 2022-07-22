@@ -4,26 +4,21 @@
   color: var(--secondary-dark);
 
   border-radius: 0;
-  filter: drop-shadow(5px 8px 15px rgba(0, 0, 0, 0.2));
+  filter: var(--drop-shadow);
 
   .mat-button-toggle {
-    width: 45px;
+    display: flex;
+    font-size: 14px;
+    align-items: center;
     
     background-color: var(--secondary);
     border: 1px solid var(--primary-dark);
 
-    .mat-button-toggle-label-content {
-      padding: 0; // not working
-  
-      line-height: 40px;
-    }
   }
-  
   .mat-button-toggle-checked {
     color: var(--text-light);
   
     background-color: var(--primary);
     border: 1px solid var(--secondary-dark);
   }
-  
 }

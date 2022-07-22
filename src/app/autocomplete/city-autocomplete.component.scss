@@ -2,9 +2,13 @@
   position: relative;
   display: flex;
 
-  width: 350px;
+  min-width: 150px;
+  max-width: 350px;
+
   height: 40px;
-  margin-right: 20px;
+  margin-right: 10px;
+
+  filter: var(--drop-shadow);
 
   .select-city__input {
     flex-grow: 1;
@@ -17,14 +21,17 @@
   }
 }
 
-  .select-city::after {
-    display: flex;
-    align-items: center;
+.select-city::after {
+  position: absolute;
+  top: 7px;
+  bottom: 0;
+  right: 5px;
+  
+  content: url('../../assets/icons/location.svg');
+}
 
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 5px;
-    
-    content: url('../../assets/icons/location.svg');
-  }
+.mat-option {
+  color: var(--text-dark);
+  font-size: 14px;
+  padding: 0 22px;
+}
