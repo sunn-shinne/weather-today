@@ -1,3 +1,4 @@
+@import url("~@angular/material/prebuilt-themes/deeppurple-amber.css"); 
 
 @font-face {
   font-family: Questrial;
@@ -22,11 +23,13 @@
   --black: #000000;
 
   --primary: #98CCFD;
-  --primary-dark: #A4A4A4;
+  --primary-dark: #575757;
   --secondary: #E0E0E0;
-  --secondary-dark: #575757;
+  --secondary-dark: #A4A4A4;
   --text-dark: #2C2C2C;
   --text-light: #FFFFFF;
+
+  --drop-shadow: drop-shadow(3px 5px 8px rgba(0, 0, 0, 0.2));
 
   // themes colors
   --morning: rgba(248, 187, 224, 0.5);
@@ -48,7 +51,7 @@ html {
     height: 100%;
     
     overflow-x: hidden;
-    background-color: var(--white);
+    background-color: var(--morning);
   
     color: var(--text-dark);
     font: normal 17px/21px "Open Sans", sans-serif;  
@@ -56,8 +59,7 @@ html {
 
   h1 {
     color: var(--primary-dark);
-    font-size: 41px;
-    font: 41px/1 Questrial, sans-serif;
+    font: 38px/0.8 Questrial, sans-serif;
   }
 
   h2 {
