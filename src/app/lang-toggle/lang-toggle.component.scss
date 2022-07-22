@@ -1,7 +1,7 @@
 .mat-button-toggle-group {
   height: 40px;
 
-  color: var(--secondary-dark);
+  color: var(--primary-dark);
 
   border-radius: 0;
   filter: var(--drop-shadow);
@@ -12,13 +12,13 @@
     align-items: center;
     
     background-color: var(--secondary);
-    border: 1px solid var(--primary-dark);
+    border: 1px solid var(--secondary-dark);
 
   }
   .mat-button-toggle-checked {
     color: var(--text-light);
   
     background-color: var(--primary);
-    border: 1px solid var(--secondary-dark);
+    border: 1px solid var(--primary-dark);
   }
 }
