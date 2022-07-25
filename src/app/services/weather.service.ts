@@ -23,7 +23,7 @@ export class WeatherService {
 
   getCurrentWeatherByCity(cityName: string): Observable<CurrentWeather> {
     return this.http.get<CurrentWeather>(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${environment.openWeather.API_key}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${environment.openWeather.API_key}`
     );
   }
 
@@ -53,7 +53,7 @@ export class WeatherService {
   }
 
   getForecastByCity(cityName: string, numberOfTimestamps: number,): Observable<Forecast>{
-    return this.http.get<Forecast>(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&cnt=${numberOfTimestamps}&appid=${environment.openWeather.API_key}`);
+    return this.http.get<Forecast>(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&cnt=${numberOfTimestamps}&units=metric&appid=${environment.openWeather.API_key}`);
   }
 
   getCoordinatesByLocationName(cityName: string, limit: number = 1): Observable<CityCoordinates[]>{
