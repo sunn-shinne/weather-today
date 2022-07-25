@@ -1,0 +1,33 @@
+.weather {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  width: 100%;
+  margin-top: 30px;
+
+  .weather__now {
+    flex: 1 1 49%;
+    min-width: 330px;
+
+    margin-right: 10px;
+  }
+
+  .weather__by-hours {
+    flex: 1 1 49%;
+    
+    background-color: var(--white);
+    filter: var(--drop-shadow);
+  }
+}
+
+@media (max-width: 720px) {
+  .weather__now {
+    margin-right: 0 !important;
+  }
+  .weather__by-hours {
+    margin-top: 10px;
+    height: 100px;
+  }
+}
+
