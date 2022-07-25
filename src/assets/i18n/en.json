@@ -1,0 +1,30 @@
+{
+    "NAVS": {
+        "TODAY": "Today",
+        "TOMORROW": "Tomorrow",
+        "FOR_5_DAYS": "For 5 days",
+        "FOR_7_DAYS": "For 7 days",
+        "FOR_16_DAYS": "For 16 days"
+    },
+    "INPUT": {
+        "PLACEHOLDER": {
+            "CHOOSE_YOUR_CITY": "Choose your city"
+        }
+    },
+    "TITLE": {
+        "WEATHER_RIGHT_NOW": "Weather in the {{city}} right now",
+        "MAP_OF_PRECIPITATION": "Map of the {{city}} precipitation"
+    },
+    "INFO": {
+        "AIR_TEMPERATURE": "Air temperature",
+        "FEELS_LIKE": "Feels like",
+        "WIND": "Wind",
+        "PRESSURE": "Pressure",
+        "HUMIDITY": "Humidity",
+        "VISIBILITY": "Visibility",
+        "SUNRISE_TIME": "Sunrise time",
+        "SUNSET_TIME": "Sunset time",
+        "BAYLIGHT_DURATION": "Baylight duration",
+        "SOLAR_ELEVATION_ANGLE": "Solar elevation angle"
+    }
+}

@@ -1,7 +1,7 @@
 <form class="select-city">
   <input class="select-city__input"
         type="text"
-        placeholder="Choose your city"
+        [placeholder]='"INPUT.PLACEHOLDER.CHOOSE_YOUR_CITY" | translate'
         [formControl]="cityControl"
         [matAutocomplete]="auto">
         <mat-autocomplete #auto="matAutocomplete">

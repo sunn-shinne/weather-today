@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-lang-toggle',
@@ -8,7 +9,8 @@ import { Component } from '@angular/core';
 export class LangToggleComponent {
   language: 'ru' | 'en' = 'en';
 
-  constructor() {}
+  constructor(public translate: TranslateService){
+  }
 
   onChangeLanguage(event: any) {
     this.language = event.value;
