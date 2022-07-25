@@ -53,4 +53,14 @@ export class WeatherService {
     return this.http.get<AirPollution>(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${latitude}&lon=${longitude}&start=${startUnixTime}&end=${endUnixTime}&appid=${environment.openWeather.API_key}`)
   }
 
+  getForecastByСityDayInterval(cityName: string, numberOfDays: number = 16, units: string = 'M', language: string = 'en'): Observable<any>{
+    // 500 calls/day
+    return this.http.get<any>(`https://api.weatherbit.io/v2.0/forecast/daily?city=${cityName}&units=${units}&days=${numberOfDays}&lang=${language}&key=${environment.weatherbit.API_key}`);
+  }
+
+  getForecastByCoorDayInterval(latitude: string | number, longitude: string | number, numberOfDays: number = 16, units: string = 'M', language: string = 'en'): Observable<any>{
+    // 500 calls/day
+    return this.http.get<any>(`https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&units=${units}&days=${numberOfDays}&lang=${language}&key=${environment.weatherbit.API_key}`);
+  }
+
 }
