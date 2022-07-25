@@ -1,20 +1,21 @@
 .mat-button-toggle-group {
   height: 40px;
 
-  color: var(--primary-dark);
-
   border-radius: 0;
+  border: none;
   filter: var(--drop-shadow);
-
+  
   .mat-button-toggle {
     display: flex;
-    font-size: 14px;
     align-items: center;
+
+    font-size: 14px;
+    color: var(--primary-dark);
     
     background-color: var(--secondary);
     border: 1px solid var(--secondary-dark);
-
   }
+
   .mat-button-toggle-checked {
     color: var(--text-light);
   
