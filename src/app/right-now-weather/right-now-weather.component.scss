@@ -1,0 +1,81 @@
+.right-now-weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  box-sizing: border-box;
+  padding: 20px 30px;
+
+  background-color: white;
+  filter: var(--drop-shadow);
+
+  .right-now-weather__main-info {
+    margin-bottom: 10px;
+    padding: 10px;
+    padding-top: 0;
+
+    font-size: 16px;
+
+    .main-info__icon {
+      font-size: 200px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+  }
+
+  .info__temperature {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 10px 5px;
+
+  }
+
+  .info__value {
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .info__other {
+    display: flex;
+
+    .other__col {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+  
+      width: 50%;
+
+      .other__col__line {
+        display: flex;
+        justify-content: space-between;
+
+        padding: 10px 5px;
+      }
+
+    }
+
+    .other__col-right {
+      padding-right: 10px;
+    }
+
+    .other__col-left {
+      padding-left: 10px;
+    }
+
+    .other__col-left::before {
+      position: absolute;
+
+      top: 0;
+      bottom: 0;
+      left: 0;
+
+      width: 1px;
+      background-color: var(--secondary-dark);
+      content: "";
+    }
+  }
+
+}

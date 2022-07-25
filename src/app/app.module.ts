@@ -18,6 +18,7 @@ import { TodayWeatherComponent } from './pages/today-weather/today-weather.compo
 import { TomorrowWeatherComponent } from './pages/tomorrow-weather/tomorrow-weather.component';
 import { SevenDaysWeatherComponent } from './pages/seven-days-weather/seven-days-weather.component';
 import { SixteenDaysWeatherComponent } from './pages/sixteen-days-weather/sixteen-days-weather.component';
+import { RightNowWeatherComponent } from './right-now-weather/right-now-weather.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SixteenDaysWeatherComponent } from './pages/sixteen-days-weather/sixtee
     TomorrowWeatherComponent,
     SevenDaysWeatherComponent,
     SixteenDaysWeatherComponent,
+    RightNowWeatherComponent,
   ],
   imports: [
     BrowserAnimationsModule,
