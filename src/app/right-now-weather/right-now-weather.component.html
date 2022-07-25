@@ -3,8 +3,8 @@
   <h2 class="right-now-weather__title">Weather in the {{city}} right now</h2>
 
   <div class="right-now-weather__main-info">
-    <i class="wi main-info__icon" [ngClass]="rightNowWeather?.icon_code || ''"></i>
-    <p class="main-info__text">{{rightNowWeather?.description | titlecase}}</p>
+    <i class="wi main-info__icon" [ngClass]="rightNowWeather.icon_code || ''"></i>
+    <p class="main-info__text">{{rightNowWeather.description | titlecase}}</p>
   </div>
 
   <div class="right-now-weather__info">
@@ -12,13 +12,13 @@
     <hr>
     <div class="info__temperature">
       <span>Air temperature</span>
-      <span class="info__value">{{rightNowWeather?.temp}}</span>
+      <span class="info__value">{{rightNowWeather.temp}}</span>
     </div>
 
     <hr>
     <div class="info__temperature">
       <span>Feels like</span>
-      <span class="info__value">{{rightNowWeather?.feels_like}}</span>
+      <span class="info__value">{{rightNowWeather.feels_like}}</span>
     </div>
 
     <hr>
@@ -27,24 +27,24 @@
 
         <div class="other__col__line">
           <span>Wind</span>
-          <span class="info__value">{{rightNowWeather?.wind?.speed}} m/s</span>
+          <span class="info__value">{{rightNowWeather.wind.speed}} m/s</span>
         </div>
       <hr>
         <div class="other__col__line">
           <span>Pressure</span>
-          <span class="info__value">{{rightNowWeather?.pressure}} mb</span>
+          <span class="info__value">{{rightNowWeather.pressure}} mb</span>
         </div>
       </div>
 
     <div class="other__col other__col-left">
       <div class="other__col__line">
         <span>Humidity</span>
-        <span  class="info__value">{{rightNowWeather?.humidity}}%</span>
+        <span  class="info__value">{{rightNowWeather.humidity}}%</span>
       </div>
       <hr>
       <div class="other__col__line">
         <span>Visibility</span>
-        <span class="info__value">{{rightNowWeather?.visibility}} m</span>
+        <span class="info__value">{{rightNowWeather.visibility}} m</span>
       </div>
     </div>
   </div>
