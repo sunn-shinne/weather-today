@@ -16,14 +16,15 @@ import { LangToggleComponent } from './lang-toggle/lang-toggle.component';
 import { NavsComponent } from './navs/navs.component';
 import { TodayWeatherComponent } from './pages/today-weather/today-weather.component';
 import { TomorrowWeatherComponent } from './pages/tomorrow-weather/tomorrow-weather.component';
-import { SevenDaysWeatherComponent } from './pages/seven-days-weather/seven-days-weather.component';
-import { SixteenDaysWeatherComponent } from './pages/sixteen-days-weather/sixteen-days-weather.component';
+import { FiveDaysWeatherComponent } from './pages/five-days-weather/five-days-weather.component';
+
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
+
 
 @NgModule({
   declarations: [
@@ -34,8 +35,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavsComponent,
     TodayWeatherComponent,
     TomorrowWeatherComponent,
-    SevenDaysWeatherComponent,
-    SixteenDaysWeatherComponent,
+    FiveDaysWeatherComponent,
   ],
   imports: [
     BrowserAnimationsModule,

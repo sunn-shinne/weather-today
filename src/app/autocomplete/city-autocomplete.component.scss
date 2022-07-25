@@ -10,7 +10,7 @@
 
   filter: var(--drop-shadow);
 
-  .select-city__input {
+  .mat-autocomplete-trigger {
     flex-grow: 1;
 
     box-sizing: border-box;
@@ -21,6 +21,18 @@
   }
 }
 
+.mat-option {
+  color: var(--text-dark);
+  font-size: 14px;
+  padding: 0 22px;
+  
+  background-color: var(--white);
+}
+
+.mat-option:hover {
+  background-color: var(--secondary);
+}
+
 .select-city::after {
   position: absolute;
   top: 7px;
@@ -28,10 +40,4 @@
   right: 5px;
   
   content: url('../../assets/icons/location.svg');
-}
-
-.mat-option {
-  color: var(--text-dark);
-  font-size: 14px;
-  padding: 0 22px;
 }
