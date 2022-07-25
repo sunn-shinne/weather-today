@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SevenDaysWeatherComponent } from './seven-days-weather/seven-days-weather.component';
-import { SixteenDaysWeatherComponent } from './sixteen-days-weather/sixteen-days-weather.component';
-import { TodayWeatherComponent } from './today-weather/today-weather.component';
-import { TomorrowWeatherComponent } from './tomorrow-weather/tomorrow-weather.component';
+import { SevenDaysWeatherComponent } from './pages/seven-days-weather/seven-days-weather.component';
+import { SixteenDaysWeatherComponent } from './pages/sixteen-days-weather/sixteen-days-weather.component';
+import { TodayWeatherComponent } from './pages/today-weather/today-weather.component';
+import { TomorrowWeatherComponent } from './pages/tomorrow-weather/tomorrow-weather.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/today', pathMatch: 'full' },
