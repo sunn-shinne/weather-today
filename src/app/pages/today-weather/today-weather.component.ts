@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { mergeMap, concatMap } from 'rxjs';
-import { CityCoordinates } from 'src/app/interface/CityCoordinates';
+import { CityCoordinates } from 'src/app/interfaces/CityCoordinates';
+import { CurrentWeather } from 'src/app/interfaces/CurrentWeather';
 import { CurrentWeather } from 'src/app/interface/CurrentWeather';
 import { WeatherService } from 'src/app/services/weather.service';
 

@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { CurrentWeather } from '../interface/CurrentWeather';
-import { Forecast } from '../interface/Forecast';
-import { CityCoordinates } from '../interface/CityCoordinates';
-import { AirPollution } from '../interface/AirPollution';
+import { CurrentWeather } from '../interfaces/CurrentWeather';
+import { Forecast } from '../interfaces/Forecast';
+import { CityCoordinates } from '../interfaces/CityCoordinates';
+import { AirPollution } from '../interfaces/AirPollution';
 
 @Injectable({
   providedIn: 'root'
