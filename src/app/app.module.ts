@@ -8,7 +8,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CityAutocompleteComponent } from './autocomplete/city-autocomplete.component';
@@ -18,6 +18,14 @@ import { TodayWeatherComponent } from './pages/today-weather/today-weather.compo
 import { TomorrowWeatherComponent } from './pages/tomorrow-weather/tomorrow-weather.component';
 import { FiveDaysWeatherComponent } from './pages/five-days-weather/five-days-weather.component';
 import { RightNowWeatherComponent } from './right-now-weather/right-now-weather.component';
+
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 
 @NgModule({
   declarations: [
@@ -41,8 +49,20 @@ import { RightNowWeatherComponent } from './right-now-weather/right-now-weather.
     ReactiveFormsModule,
     MatButtonToggleModule,
     MatAutocompleteModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(translate: TranslateService) {
+    translate.setDefaultLang('en');
+  }
+}
