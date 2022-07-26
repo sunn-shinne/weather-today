@@ -24,6 +24,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SunriseWeatherComponent } from './sunrise-weather/sunrise-weather.component';
 import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
 import { SwiperModule } from 'swiper/angular';
+import { FooterComponent } from './footer/footer.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FiveDaysWeatherComponent,
     SunriseWeatherComponent,
     HourlyForecastComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserAnimationsModule,
