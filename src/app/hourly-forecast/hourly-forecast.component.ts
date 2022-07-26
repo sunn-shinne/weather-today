@@ -1,6 +1,18 @@
-import { Component, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { SwiperComponent } from 'swiper/angular';
-import SwiperCore, { Pagination, Navigation, Virtual, SwiperOptions } from 'swiper';
+import SwiperCore, {
+  Pagination,
+  Navigation,
+  Virtual,
+  SwiperOptions,
+} from 'swiper';
 import { WeatherService } from '../services/weather.service';
 import { Forecast } from '../interfaces/Forecast';
 
@@ -29,40 +41,37 @@ export class HourlyForecastComponent implements OnInit, OnDestroy {
     //scrollbar: { draggable: true },
     virtual: true,
     breakpoints: {
-      1240:{
+      1240: {
         slidesPerView: 5,
       },
-      1000:{
+      1000: {
         slidesPerView: 4,
       },
-      560:{
+      560: {
         slidesPerView: 3,
-      }
-    }
+      },
+    },
   };
 
-  constructor(public weatherService: WeatherService) { }
+  constructor(public weatherService: WeatherService) {}
 
   ngOnInit(): void {
-    this.weatherService.getForecastByCity(this.city,6).subscribe((res) => {
+    this.weatherService.getForecastByCity(this.city, 6).subscribe((res) => {
       this.forecast = res;
-      console.log(res)
+      // console.log(res)
     });
   }
 
-  ngOnDestroy(): void{
-    
-  }
+  ngOnDestroy(): void {}
 
-  addSignToTemp(temp: number): string{
+  addSignToTemp(temp: number): string {
     return `${Math.sign(temp) >= 0 ? '+' : '-'}${Math.round(temp)}`;
   }
 
-  addWiOwm(code:any):any{
-    return `wi-owm-${code}`
+  addWiOwm(code: any): any {
+    return `wi-owm-${code}`;
   }
   //convertUnixTimestamp(timestamp:any): Date{
   //  return new Date(timestamp)
   //}
-
 }
