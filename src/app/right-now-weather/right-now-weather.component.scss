@@ -10,6 +10,10 @@
   background-color: white;
   filter: var(--drop-shadow);
 
+  .right-now-weather__title {
+    margin-bottom: 20px;
+  }
+
   .right-now-weather__main-info {
     margin-bottom: 10px;
     padding: 10px;
@@ -20,7 +24,7 @@
     .main-info__icon {
       font-size: 170px;
       color: var(--primary);
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
   }
 
@@ -45,8 +49,6 @@
     font-weight: 300;
   }
 }
-
-
 
 @media (max-width: 900px) {
   .main-info__icon {

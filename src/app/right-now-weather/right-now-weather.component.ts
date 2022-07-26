@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RightNowWeather } from '../interfaces/RightNowWeather';
+import { LocationService } from '../services/location.service';
 
 @Component({
   selector: 'app-right-now-weather',
@@ -10,7 +11,7 @@ export class RightNowWeatherComponent implements OnInit {
   @Input() rightNowWeather!: RightNowWeather;
   @Input() city!: string;
 
-  constructor() {}
+  constructor(public locationService: LocationService) {}
 
   ngOnInit(): void {}
 }
