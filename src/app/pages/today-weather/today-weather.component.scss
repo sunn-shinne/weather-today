@@ -13,9 +13,17 @@
     margin-right: 10px;
   }
 
-  .weather__by-hours {
+  .weather__sunrise {
     flex: 1 1 49%;
     
+    background-color: var(--white);
+    filter: var(--drop-shadow);
+  }
+
+  .weather__by-hours{
+    flex: 100%;
+    max-width: 100%;
+    margin: 10px 0;
     background-color: var(--white);
     filter: var(--drop-shadow);
   }
@@ -25,7 +33,7 @@
   .weather__now {
     margin-right: 0 !important;
   }
-  .weather__by-hours {
+  .weather__sunrise {
     margin-top: 10px;
     height: 100px;
   }
