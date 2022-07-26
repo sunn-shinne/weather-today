@@ -7,12 +7,14 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./lang-toggle.component.scss'],
 })
 export class LangToggleComponent {
-  language: 'ru' | 'en' = 'en';
-
-  constructor(public translate: TranslateService){
+  supportLanguages = ['en', 'ru']
+  constructor(public translate: TranslateService) {
+    this.translate.addLangs(this.supportLanguages);
+    const browserlang = this.translate.getDefaultLang();
+    this.translate.use(browserlang)
   }
 
   onChangeLanguage(event: any) {
-    this.language = event.value;
+    this.translate.use(event.value);
   }
 }
