@@ -21,6 +21,7 @@ import { RightNowWeatherComponent } from './right-now-weather/right-now-weather.
 
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SunriseWeatherComponent } from './sunrise-weather/sunrise-weather.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -38,6 +39,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TomorrowWeatherComponent,
     RightNowWeatherComponent,
     FiveDaysWeatherComponent,
+    SunriseWeatherComponent,
   ],
   imports: [
     BrowserAnimationsModule,
