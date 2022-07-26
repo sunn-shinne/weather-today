@@ -4,17 +4,16 @@
   justify-content: space-between;
 
   width: 100%;
-  margin-top: 30px;
+  margin: 30px 0;
 
   .weather__now {
-    flex: 1 1 49%;
-    min-width: 330px;
-
-    margin-right: 10px;
+    flex: 0 1 49%;
+    margin: 20px 0 0;
   }
 
   .weather__sunrise {
-    flex: 1 1 49%;
+    flex: 0 1 49%;
+    margin: 20px 0 0;
     
     background-color: var(--white);
     filter: var(--drop-shadow);
@@ -23,19 +22,21 @@
   .weather__by-hours{
     flex: 100%;
     max-width: 100%;
-    margin: 10px 0;
-    background-color: var(--white);
-    filter: var(--drop-shadow);
+    margin: 20px 0 0;
   }
 }
 
 @media (max-width: 720px) {
-  .weather__now {
-    margin-right: 0 !important;
-  }
-  .weather__sunrise {
-    margin-top: 10px;
-    height: 100px;
+  .weather {
+
+    .weather__now{
+      flex: 100% !important;
+    }
+    
+    .weather__sunrise {
+      flex: 100% !important;
+      height: 200px;
+    }
   }
 }
 
