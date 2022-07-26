@@ -22,6 +22,8 @@ import { RightNowWeatherComponent } from './right-now-weather/right-now-weather.
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SunriseWeatherComponent } from './sunrise-weather/sunrise-weather.component';
+import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
+import { SwiperModule } from 'swiper/angular';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -40,6 +42,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     RightNowWeatherComponent,
     FiveDaysWeatherComponent,
     SunriseWeatherComponent,
+    HourlyForecastComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -52,6 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatButtonToggleModule,
     MatAutocompleteModule,
     HttpClientModule,
+    SwiperModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

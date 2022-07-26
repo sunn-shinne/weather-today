@@ -18,80 +18,38 @@
     font-size: 16px;
 
     .main-info__icon {
-      font-size: 200px;
+      font-size: 170px;
       color: var(--primary);
       margin-bottom: 40px;
     }
   }
 
-  .info__temperature {
+  .info__line {
     display: flex;
-    justify-content: space-between;
-
-    padding: 10px 5px;
-
+  
+    .info__line__item {
+      display: flex;
+      justify-content: space-between;
+      flex: 1 1 50%;
+  
+      padding: 10px;
+  
+      &:nth-child(even) {
+        padding-left: 10px;
+      }
+    }
   }
 
   .info__value {
     font-size: 16px;
     font-weight: 300;
   }
-
-  .info__other {
-    display: flex;
-
-    .other__col {
-      position: relative;
-
-      display: flex;
-      flex-direction: column;
-  
-      width: 50%;
-
-      .other__col__line {
-        display: flex;
-        justify-content: space-between;
-
-        padding: 10px 5px;
-      }
-
-    }
-
-    .other__col-right {
-      padding-right: 10px;
-    }
-
-    .other__col-left {
-      padding-left: 10px;
-    }
-
-    .other__col-left::before {
-      position: absolute;
-
-      top: 0;
-      bottom: 0;
-      left: 0;
-
-      width: 1px;
-      background-color: var(--secondary-dark);
-      content: "";
-    }
-  }
-
 }
 
+
+
 @media (max-width: 900px) {
-
-  .right-now-weather h2 {
-    font-size: 15px !important;  
-  }
-
-  .info__value{
-    font-size: 13px !important;  
-  }
-
   .main-info__icon {
     font-size: 150px !important;
   }
-
 }
