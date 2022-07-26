@@ -1,11 +1,11 @@
 <div class="weather" *ngIf="!isLoading else loading">
   <app-right-now-weather [rightNowWeather]="rightNowWeather" [city]="cityCoordinates[0].name" class="weather__now"></app-right-now-weather>
+
   <div class="weather__sunrise">
     <p>sunrise and sunset time</p>
   </div>
-  <div class="weather__by-hours">
-    <app-hourly-forecast [city]="cityCoordinates[0].name"></app-hourly-forecast>
-  </div>
+
+  <app-hourly-forecast class="weather__by-hours" [city]="cityCoordinates[0].name"></app-hourly-forecast>
 </div>
 
 <ng-template #loading>
