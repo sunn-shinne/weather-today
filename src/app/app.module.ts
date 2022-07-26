@@ -17,9 +17,13 @@ import { NavsComponent } from './navs/navs.component';
 import { TodayWeatherComponent } from './pages/today-weather/today-weather.component';
 import { TomorrowWeatherComponent } from './pages/tomorrow-weather/tomorrow-weather.component';
 import { FiveDaysWeatherComponent } from './pages/five-days-weather/five-days-weather.component';
+import { RightNowWeatherComponent } from './right-now-weather/right-now-weather.component';
 
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SunriseWeatherComponent } from './sunrise-weather/sunrise-weather.component';
+import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
+import { SwiperModule } from 'swiper/angular';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -35,7 +39,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavsComponent,
     TodayWeatherComponent,
     TomorrowWeatherComponent,
+    RightNowWeatherComponent,
     FiveDaysWeatherComponent,
+    SunriseWeatherComponent,
+    HourlyForecastComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -48,6 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatButtonToggleModule,
     MatAutocompleteModule,
     HttpClientModule,
+    SwiperModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

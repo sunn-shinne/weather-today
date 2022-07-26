@@ -1,4 +1,5 @@
 @import url("~@angular/material/prebuilt-themes/deeppurple-amber.css"); 
+@import url("../src/assets/icons/weather/css/weather-icons.min.css");
 
 @font-face {
   font-family: Questrial;
@@ -54,19 +55,27 @@ html {
     background-color: var(--morning);
   
     color: var(--text-dark);
-    font: normal 14px/21px "Open Sans", sans-serif;  
-  }
+    font: normal 16px/1 "Open Sans", sans-serif;  
 
-  h1 {
-    color: var(--primary-dark);
-    font: 38px/0.8 Questrial, sans-serif;
-  }
+    h1 {
+      color: var(--primary-dark);
+      font: 38px/0.8 Questrial, sans-serif;
+    }
 
-  h2 {
-    color: var(--black);
-    font: 300 22px/30px "Open Sans", sans-serif;
-    font-weight: 300;
+    h2 {
+      color: var(--black);
+      font: 300 18px/30px "Open Sans", sans-serif;
+      font-weight: 300;
+    }
   }
 }
 
+@media (max-width: 900px) {
+  h2 {
+    font-size: 16px !important;  
+  }
 
+  p {
+    font-size: 14px;
+  }
+}

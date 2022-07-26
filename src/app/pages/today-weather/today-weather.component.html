@@ -1,1 +1,9 @@
-<p>today-weather works!</p>
+<div class="weather" *ngIf="!isLoading else loading">
+  <app-right-now-weather [rightNowWeather]="rightNowWeather" class="weather__now"></app-right-now-weather>
+  <app-sunrise-weather class="weather__sunrise"></app-sunrise-weather>
+  <app-hourly-forecast class="weather__by-hours" [forecast]="weatherForecast"></app-hourly-forecast>
+</div>
+
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>

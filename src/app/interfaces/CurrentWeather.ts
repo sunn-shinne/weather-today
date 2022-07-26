@@ -21,6 +21,7 @@ export interface CurrentWeather{
   id: number; // City ID
   name: string; // City name
   cod: number | string; //Internal parameter
+  dt_txt: string;
 }
 
 export interface Weather{
