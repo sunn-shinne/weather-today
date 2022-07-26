@@ -12,8 +12,9 @@
   }
 
   .weather__sunrise {
+    flex: 0 1 49%;
     margin: 20px 0 0;
-    
+
     background-color: var(--white);
     filter: var(--drop-shadow);
   }
@@ -33,7 +34,6 @@
     
     .weather__sunrise {
       flex: 100% !important;
-      height: 200px;
     }
   }
 }
