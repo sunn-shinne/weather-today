@@ -1,6 +1,6 @@
 <div class="right-now-weather">
 
-  <h2 class="right-now-weather__title">Weather in the {{city}} right now</h2>
+  <h2 class="right-now-weather__title">Weather in the {{(locationService.locationChange$ | async)?.city}} right now</h2>
 
   <div class="right-now-weather__main-info">
     <i class="wi main-info__icon" [ngClass]="rightNowWeather.icon_code || ''"></i>

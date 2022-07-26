@@ -24,21 +24,16 @@ SwiperCore.use([Pagination, Navigation, Virtual]);
   styleUrls: ['./hourly-forecast.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class HourlyForecastComponent implements OnInit, OnDestroy {
-  forecast: Forecast = {} as Forecast;
-
+export class HourlyForecastComponent {
   @ViewChild('swiperRef', { static: false }) swiper?: SwiperComponent;
 
-  @Input() city!: string;
+  @Input() forecast: Forecast = {} as Forecast;
 
   config: SwiperOptions = {
     slidesPerView: 2,
-    //centeredSlides: true,
     spaceBetween: 30,
     navigation: true,
     grabCursor: true,
-    //pagination: { type: 'fraction'},
-    //scrollbar: { draggable: true },
     virtual: true,
     breakpoints: {
       1240: {
@@ -55,15 +50,6 @@ export class HourlyForecastComponent implements OnInit, OnDestroy {
 
   constructor(public weatherService: WeatherService) {}
 
-  ngOnInit(): void {
-    this.weatherService.getForecastByCity(this.city, 6).subscribe((res) => {
-      this.forecast = res;
-      // console.log(res)
-    });
-  }
-
-  ngOnDestroy(): void {}
-
   addSignToTemp(temp: number): string {
     return `${Math.sign(temp) >= 0 ? '+' : '-'}${Math.round(temp)}`;
   }
@@ -71,7 +57,4 @@ export class HourlyForecastComponent implements OnInit, OnDestroy {
   addWiOwm(code: any): any {
     return `wi-owm-${code}`;
   }
-  //convertUnixTimestamp(timestamp:any): Date{
-  //  return new Date(timestamp)
-  //}
 }
