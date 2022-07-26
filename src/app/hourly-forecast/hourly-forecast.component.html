@@ -1,19 +1,19 @@
 <div class="hourly-forecast">
-  <h3 class="hourly-forecast__title">Hourly Forecast</h3>
+  <h2 class="hourly-forecast__title">Hourly forecast  for the {{(locationService.locationChange$ | async)?.city}}</h2>
   <div>
     <swiper #swiperRef [config]="config">
       <ng-template swiperSlide *ngFor="let forecast of forecast.list">
-        <div class="forecast__date">{{ forecast.dt_txt | date:'h:mm a z' }}</div>
-
+        
+        <p class="forecast__date">{{ forecast.dt_txt | date:'h:mm a z' }}</p>
         <div class="forecast__main-info">
           <i class="wi forecast__icon" [ngClass]="addWiOwm(forecast.weather[0].id) || ''"></i>
           <p class="forecast__text">{{forecast.weather[0].description | titlecase}}</p>
         </div>
 
-        <div class="forecast__temp">{{ addSignToTemp(forecast.main.temp) }}</div>
-        <div class="forecast__speed">{{ forecast.wind?.speed }} m/s</div>
-        <div class="forecast__ressure">{{ forecast.main.pressure }} mb</div>
-        <div class="forecast__humidity">{{ forecast.main.humidity }} %</div>       
+        <div class="forecast__value">{{ addSignToTemp(forecast.main.temp) }}</div>
+        <div class="forecast__value">{{ forecast.wind?.speed }} m/s</div>
+        <div class="forecast__value">{{ forecast.main.pressure }} mb</div>
+        <div class="forecast__value">{{ forecast.main.humidity }} %</div>       
       </ng-template>
     </swiper>
   </div>

@@ -15,6 +15,7 @@ import SwiperCore, {
 } from 'swiper';
 import { WeatherService } from '../services/weather.service';
 import { Forecast } from '../interfaces/Forecast';
+import { LocationService } from '../services/location.service';
 
 SwiperCore.use([Pagination, Navigation, Virtual]);
 
@@ -48,7 +49,10 @@ export class HourlyForecastComponent {
     },
   };
 
-  constructor(public weatherService: WeatherService) {}
+  constructor(
+    public weatherService: WeatherService,
+    public locationService: LocationService
+  ) {}
 
   addSignToTemp(temp: number): string {
     return `${Math.sign(temp) >= 0 ? '+' : '-'}${Math.round(temp)}`;
