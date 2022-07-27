@@ -3,7 +3,11 @@
   text-align: center;
   font-size: 12px;
 
-  p {
-    padding: 5px;
+  .footer__links {
+    padding: 10px;
+
+    a {
+      padding: 5px;
+    } 
   }
 }
