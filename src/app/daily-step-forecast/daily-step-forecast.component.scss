@@ -51,3 +51,36 @@ td.mat-cell {
 th.mat-header-cell{
   border-bottom: 1px solid #A4A4A4;
 }
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.element-row:not(.expanded-row):hover {
+  background: whitesmoke;
+  cursor: pointer;
+}
+
+tr.element-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  :nth-child(n){
+    flex: 1 0 21%;
+    white-space: nowrap;
+  }
+}
+
+.mat-column-expandedDetail{
+  padding: 0;
+}

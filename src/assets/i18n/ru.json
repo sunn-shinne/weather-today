@@ -25,6 +25,13 @@
         "SUNRISE_TIME": "Восход",
         "SUNSET_TIME": "Закат",
         "BAYLIGHT_DURATION": "Продолжительность дня",
-        "SOLAR_ELEVATION_ANGLE": "Высота солнца над горизонтом"
+        "SOLAR_ELEVATION_ANGLE": "Высота солнца над горизонтом",
+        "Maximum_Temperature": "Максимальная температура",
+        "Minimum_Temperature": "Минимальная температура",
+        "Probability_of_Precipitation": "Вероятность осадков",
+        "Snow_Depth": "Глубина снега",
+        "Cloud_coverage": "Облачное покрытие",
+        "Maximum_UV_Index": "Максимальный УФ-индекс",
+        "Moon_phase": "Фаза луны"
     }
 }

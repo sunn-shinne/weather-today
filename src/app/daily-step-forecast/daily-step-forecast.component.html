@@ -1,9 +1,4 @@
-<table mat-table [dataSource]="weatherService.DailyStepForecast" class="mat-elevation-z8 daily-step-forecast">
-  <!--
-  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
-  </ng-container>-->
+<table mat-table [dataSource]="weatherService.DailyStepForecast" class="mat-elevation-z8 daily-step-forecast" multiTemplateDataRows>
 
   <ng-container matColumnDef="valid_date">
     <th mat-header-cell *matHeaderCellDef> </th>
@@ -20,7 +15,6 @@
       </div>
     </td>
   </ng-container>
-
 
   <ng-container matColumnDef="wind_spd">
     <th mat-header-cell *matHeaderCellDef> {{ 'INFO.WIND' | translate }} </th>
@@ -42,8 +36,30 @@
     <td class="rh-column" mat-cell *matCellDef="let element"> {{element.rh}}% </td>
   </ng-container>
 
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length + 1">
+      <div class="element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+           <div> {{ 'INFO.Maximum_Temperature' | translate }} {{addSignToTemp(element.max_temp)}} </div>
+           <div> {{ 'INFO.Minimum_Temperature' | translate }} {{addSignToTemp(element.min_temp)}} </div>
+           <div> {{ 'INFO.Probability_of_Precipitation' | translate }} {{element.pop}}%</div>
+           <div> {{ 'INFO.Snow_Depth' | translate }} {{element.snow_depth}} mm</div>
+           <div> {{ 'INFO.Cloud_coverage' | translate }} {{element.clouds}}%</div>
+           <div> {{ 'INFO.VISIBILITY' | translate }} {{element.vis}} KM</div>
+           <div> {{ 'INFO.Maximum_UV_Index' | translate }} {{element.uv}}</div>
+           <div> {{ 'INFO.Moon_phase' | translate }} {{element.moon_phase}}</div>
+      </div>
+    </td>
+  </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+      class="element-row"
+      [class.expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
 </table>
 
 
