@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -25,6 +26,7 @@ import { SunriseWeatherComponent } from './sunrise-weather/sunrise-weather.compo
 import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
 import { SwiperModule } from 'swiper/angular';
 import { FooterComponent } from './footer/footer.component';
+import { DailyStepForecastComponent } from './daily-step-forecast/daily-step-forecast.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,6 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SunriseWeatherComponent,
     HourlyForecastComponent,
     FooterComponent,
+    DailyStepForecastComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -56,6 +59,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     MatButtonToggleModule,
     MatAutocompleteModule,
+    MatTableModule,
     HttpClientModule,
     SwiperModule,
     TranslateModule.forRoot({

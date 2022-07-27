@@ -1,5 +1,5 @@
 <div class="weather" *ngIf="!isLoading else loading">
-  <p>five-days-weather works!</p>
+  <app-daily-step-forecast [DailyStepForecast]="fiveDaysForecast" [columnsToDisplay]="dayInfoParametrs"></app-daily-step-forecast>
 </div>
 
 <ng-template #loading>

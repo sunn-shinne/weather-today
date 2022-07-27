@@ -1,4 +1,4 @@
-export interface fiveDaysForecast{
+export interface DailyStepForecast{
   lat: number; //Latitude (Degrees)
   lon: number; //Longitude (Degrees)
   timezone: string; //Local IANA Timezone

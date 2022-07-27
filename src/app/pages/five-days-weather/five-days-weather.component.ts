@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Subscription, switchMap } from 'rxjs';
-import { fiveDaysForecast } from 'src/app/interfaces/FiveDaysForecast';
+import { DailyStepForecast, DayForecast } from 'src/app/interfaces/DailyStepForecast';
 import { PlaceSuggestion } from 'src/app/interfaces/PlaceSuggestion';
 import { LocationService } from 'src/app/services/location.service';
 import { WeatherService } from 'src/app/services/weather.service';
@@ -16,7 +16,8 @@ export class FiveDaysWeatherComponent implements OnInit {
 
   fiveDaysForecastSub!: Subscription;
 
-  fiveDaysForecast: fiveDaysForecast = {} as fiveDaysForecast;
+  fiveDaysForecast: DayForecast[] = [];
+  dayInfoParametrs: Array<string> = [];
 
   constructor(
     public weatherService: WeatherService,
@@ -38,6 +39,9 @@ export class FiveDaysWeatherComponent implements OnInit {
           )
         )
       ) 
-      .subscribe((data) => (console.log(data))); //this.fiveDayForecast = data
+      .subscribe((data) => {
+        this.fiveDaysForecast = data.data;
+        this.dayInfoParametrs = Object.keys(data.data[0])
+      }); //this.fiveDaysForecast = data
   }
 }

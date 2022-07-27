@@ -7,7 +7,7 @@ import { Forecast } from '../interfaces/Forecast';
 import { CityCoordinates } from '../interfaces/CityCoordinates';
 import { AirPollution } from '../interfaces/AirPollution';
 import { RightNowWeather } from '../interfaces/RightNowWeather';
-import { fiveDaysForecast } from '../interfaces/FiveDaysForecast';
+import { DailyStepForecast } from '../interfaces/DailyStepForecast';
 
 @Injectable({
   providedIn: 'root',
@@ -92,9 +92,9 @@ export class WeatherService {
     numberOfDays: number = 16,
     units: string = 'M',
     language: string = 'en'
-  ): Observable<fiveDaysForecast> {
+  ): Observable<DailyStepForecast> {
     // 500 calls/day
-    return this.http.get<fiveDaysForecast>(
+    return this.http.get<DailyStepForecast>(
       `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&units=${units}&days=${numberOfDays}&lang=${language}&key=${environment.weatherbit.API_key}`
     );
   }
