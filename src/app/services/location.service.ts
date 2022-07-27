@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { ReplaySubject, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PlaceSuggestion } from '../interfaces/PlaceSuggestion';
 
@@ -16,7 +16,7 @@ interface GeocodingFeatureProperties {
   providedIn: 'root',
 })
 export class LocationService {
-  locationChange$ = new EventEmitter<PlaceSuggestion>();
+  locationChange$ = new ReplaySubject<PlaceSuggestion>(1);
 
   lang = 'en';
   defaultPlace: PlaceSuggestion = {
@@ -30,8 +30,8 @@ export class LocationService {
 
   constructor(private http: HttpClient) {}
 
-  emitLocationChange(place: PlaceSuggestion) {
-    this.locationChange$.emit(place);
+  nextLocation(place: PlaceSuggestion) {
+    this.locationChange$.next(place);
   }
 
   getPlaceByCords(latitude: number, longitude: number) {

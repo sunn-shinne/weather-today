@@ -1,5 +1,8 @@
 <div class="hourly-forecast">
-  <h2 class="hourly-forecast__title">Hourly forecast  for the {{(locationService.locationChange$ | async)?.city}}</h2>
+  <h2 class="hourly-forecast__title">
+    Hourly forecast  for the
+    <span class="title__city-name">{{(locationService.locationChange$ | async)?.city}}</span>
+  </h2>
   <div>
     <swiper #swiperRef [config]="config">
       <ng-template swiperSlide *ngFor="let forecast of weatherService.weatherForecast.list">
