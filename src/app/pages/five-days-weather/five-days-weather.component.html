@@ -1,1 +1,7 @@
-<p>five-days-weather works!</p>
+<div class="weather" *ngIf="!isLoading else loading">
+  <p>five-days-weather works!</p>
+</div>
+
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>
