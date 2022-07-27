@@ -26,7 +26,7 @@ import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.compo
 import { SwiperModule } from 'swiper/angular';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 

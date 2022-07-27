@@ -1,4 +1,4 @@
-<mat-button-toggle-group class="lang-toggle" [value]="language" (change)="onChangeLanguage($event)" name="language" aria-label="Interface language">
-  <mat-button-toggle class="lang-toggle__btn" value="en" >EN</mat-button-toggle>
-  <mat-button-toggle class="lang-toggle__btn" value="ru">RU</mat-button-toggle>
+<mat-button-toggle-group class="lang-toggle" [value]="this.translate.currentLang" (change)="onChangeLanguage($event)" name="language" aria-label="Interface language">
+  <mat-button-toggle class="lang-toggle__btn" value="en" >ENG</mat-button-toggle>
+  <mat-button-toggle class="lang-toggle__btn" value="ru">RUS</mat-button-toggle>
 </mat-button-toggle-group>

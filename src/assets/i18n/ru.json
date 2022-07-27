@@ -1,0 +1,30 @@
+{
+    "NAVS": {
+        "TODAY": "Сегодня",
+        "TOMORROW": "Завтра",
+        "FOR_5_DAYS": "На 5 дней",
+        "FOR_7_DAYS": "На 7 дней",
+        "FOR_16_DAYS": "На 16 дней"
+    },
+    "INPUT": {
+        "PLACEHOLDER": {
+            "CHOOSE_YOUR_CITY": "Выберите свой город"
+        }
+    },
+    "TITLE": {
+        "WEATHER_RIGHT_NOW": "Погода в городе {{city}} сейчас",
+        "MAP_OF_PRECIPITATION": "Карта осадков в городе {{city}}"
+    },
+    "INFO": {
+        "AIR_TEMPERATURE": "Температура воздуха",
+        "FEELS_LIKE": "Ощущается как",
+        "WIND": "Ветер",
+        "PRESSURE": "Давление",
+        "HUMIDITY": "Влажность",
+        "VISIBILITY": "Видимость",
+        "SUNRISE_TIME": "Восход",
+        "SUNSET_TIME": "Закат",
+        "BAYLIGHT_DURATION": "Продолжительность дня",
+        "SOLAR_ELEVATION_ANGLE": "Высота солнца над горизонтом"
+    }
+}
