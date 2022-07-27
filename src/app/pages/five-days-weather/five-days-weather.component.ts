@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Subscription, switchMap } from 'rxjs';
-import { DailyStepForecast, DayForecast } from 'src/app/interfaces/DailyStepForecast';
+import { DayForecast } from 'src/app/interfaces/DailyStepForecast';
 import { PlaceSuggestion } from 'src/app/interfaces/PlaceSuggestion';
 import { LocationService } from 'src/app/services/location.service';
 import { WeatherService } from 'src/app/services/weather.service';
@@ -11,7 +11,7 @@ import { WeatherService } from 'src/app/services/weather.service';
   styleUrls: ['./five-days-weather.component.scss'],
 })
 export class FiveDaysWeatherComponent implements OnInit {
-  isLoading: boolean = false;
+  requestState!: 'loading' | 'failed' | 'fulfilled';
   currentPlace$!: EventEmitter<PlaceSuggestion>;
 
   fiveDaysForecastSub!: Subscription;
@@ -22,12 +22,14 @@ export class FiveDaysWeatherComponent implements OnInit {
   constructor(
     public weatherService: WeatherService,
     private locationService: LocationService
-  ) {
-    this.currentPlace$ = this.locationService.locationChange$;
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.isLoading = false;
+    if (!this.weatherService.DailyStepForecast) {
+      this.requestState = 'loading';
+    } else {
+      this.requestState = 'fulfilled';
+    }
     
     this.fiveDaysForecastSub = this.locationService.locationChange$
       .pipe(
@@ -39,9 +41,17 @@ export class FiveDaysWeatherComponent implements OnInit {
           )
         )
       ) 
-      .subscribe((data) => {
+      .subscribe({
+        next: ({ data }) => {
+          this.weatherService.DailyStepForecast = data;
+          this.requestState = 'fulfilled';
+          //console.log(data)
+        },
+        error: () => (this.requestState = 'failed'),
+      });
+      /*((data) => {
         this.fiveDaysForecast = data.data;
         this.dayInfoParametrs = Object.keys(data.data[0])
-      }); //this.fiveDaysForecast = data
+      }); //this.fiveDaysForecast = data*/
   }
 }

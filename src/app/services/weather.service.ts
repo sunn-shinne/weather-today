@@ -6,7 +6,7 @@ import { CurrentWeather } from '../interfaces/CurrentWeather';
 import { Forecast } from '../interfaces/Forecast';
 import { AirPollution } from '../interfaces/AirPollution';
 import { RightNowWeather } from '../interfaces/RightNowWeather';
-import { DailyStepForecast } from '../interfaces/DailyStepForecast';
+import { DailyStepForecast, DayForecast } from '../interfaces/DailyStepForecast';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +14,7 @@ import { DailyStepForecast } from '../interfaces/DailyStepForecast';
 export class WeatherService {
   rightNowWeather!: RightNowWeather;
   weatherForecast!: Forecast;
+  DailyStepForecast!: DayForecast[];
 
   constructor(private http: HttpClient) {}
 
