@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnDestroy, OnInit } from '@angular/core';
-import { map, Subscription, switchMap } from 'rxjs';
+import { forkJoin, map, Subscription, switchMap } from 'rxjs';
 import { Forecast } from 'src/app/interfaces/Forecast';
 import { PlaceSuggestion } from 'src/app/interfaces/PlaceSuggestion';
 import { RightNowWeather } from 'src/app/interfaces/RightNowWeather';
@@ -12,11 +12,10 @@ import { WeatherService } from 'src/app/services/weather.service';
   styleUrls: ['./today-weather.component.scss'],
 })
 export class TodayWeatherComponent implements OnInit, OnDestroy {
-  isLoading: boolean = false;
-  currentPlace$!: EventEmitter<PlaceSuggestion>;
+  requestState!: 'loading' | 'failed' | 'fulfilled';
 
-  rightNowWeatherSub!: Subscription;
-  weatherForecastSub!: Subscription;
+  currentPlace$!: EventEmitter<PlaceSuggestion>;
+  weatherSub!: Subscription;
 
   weatherForecast: Forecast = {} as Forecast;
   rightNowWeather: RightNowWeather = {} as RightNowWeather;
@@ -29,33 +28,37 @@ export class TodayWeatherComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.isLoading = false;
-    this.rightNowWeatherSub = this.locationService.locationChange$
-      .pipe(
-        switchMap((place) =>
-          this.weatherService.getCurrentWeatherByCoordinates(
-            place.cords.lat,
-            place.cords.lon
-          )
-        ),
-        map((data) => this.weatherService.normolizeRightNowWeatherData(data))
-      )
-      .subscribe((data) => (this.rightNowWeather = data));
+    this.requestState = 'loading';
 
-    this.weatherForecastSub = this.locationService.locationChange$
+    this.weatherSub = this.locationService.locationChange$
       .pipe(
         switchMap((place) =>
-          this.weatherService.getForecastByCoordinates(
-            place.cords.lat,
-            place.cords.lon
-          )
+          forkJoin({
+            rightNow: this.weatherService
+              .getCurrentWeatherByCoordinates(place.cords.lat, place.cords.lon)
+              .pipe(
+                map((data) =>
+                  this.weatherService.normolizeRightNowWeatherData(data)
+                )
+              ),
+            forecast: this.weatherService.getForecastByCoordinates(
+              place.cords.lat,
+              place.cords.lon
+            ),
+          })
         )
       )
-      .subscribe((data) => (this.weatherForecast = data));
+      .subscribe({
+        next: ({ rightNow, forecast }) => {
+          this.rightNowWeather = rightNow;
+          this.weatherForecast = forecast;
+          this.requestState = 'fulfilled';
+        },
+        error: () => (this.requestState = 'failed'),
+      });
   }
 
   ngOnDestroy(): void {
-    this.rightNowWeatherSub.unsubscribe();
-    this.weatherForecastSub.unsubscribe();
+    this.weatherSub.unsubscribe();
   }
 }
