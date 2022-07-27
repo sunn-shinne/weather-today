@@ -4,6 +4,23 @@
   filter: var(--drop-shadow);
 
   :nth-child(n){
+    font-size: 19px;
     color: var(--text-dark);
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+}
+
+.daily-step-forecast__main-info {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 20px;
+
+  font-size: 16px;
+
+  .main-info__icon {
+    font-size: 40px;
+    color: var(--primary);
   }
 }

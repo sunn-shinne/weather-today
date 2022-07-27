@@ -4,28 +4,36 @@
     <th mat-header-cell *matHeaderCellDef> {{column}} </th>
     <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
   </ng-container>-->
+
   <ng-container matColumnDef="valid_date">
-    <th mat-header-cell *matHeaderCellDef> Date </th>
-    <td mat-cell *matCellDef="let element"> {{element.valid_date | date: 'MMM d'}} </td>
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let element"> {{element.valid_date | date:'MMM d' }} </td>
   </ng-container>
+
   <ng-container matColumnDef="weather">
-    <th mat-header-cell *matHeaderCellDef> weather </th>
-    <td mat-cell *matCellDef="let element"> {{element.weather}} </td>
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="daily-step-forecast__main-info">
+        <div>{{ addSignToTemp(element.temp) }}</div>
+        <i class="wi main-info__icon" [ngClass]="'wi-owm-' + element.weather.code || ''"></i>
+        <p class="main-info__text">{{element.weather.description | titlecase}}</p>
+      </div>
+    </td>
   </ng-container>
-  <ng-container matColumnDef="temp">
-    <th mat-header-cell *matHeaderCellDef> temp </th>
-    <td mat-cell *matCellDef="let element"> {{element.temp}} </td>
-  </ng-container>
+
+
   <ng-container matColumnDef="wind_spd">
-    <th mat-header-cell *matHeaderCellDef> wind_spd </th>
+    <th mat-header-cell *matHeaderCellDef> {{ 'INFO.WIND' | translate }} </th>
     <td mat-cell *matCellDef="let element"> {{element.wind_spd}} </td>
   </ng-container>
+
   <ng-container matColumnDef="pres">
-    <th mat-header-cell *matHeaderCellDef> pres </th>
+    <th mat-header-cell *matHeaderCellDef> {{ 'INFO.PRESSURE' | translate }} </th>
     <td mat-cell *matCellDef="let element"> {{element.pres}} </td>
   </ng-container>
+
   <ng-container matColumnDef="rh">
-    <th mat-header-cell *matHeaderCellDef> rh </th>
+    <th mat-header-cell *matHeaderCellDef> {{ 'INFO.HUMIDITY' | translate }} </th>
     <td mat-cell *matCellDef="let element"> {{element.rh}} </td>
   </ng-container>
 

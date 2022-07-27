@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { DailyStepForecast, DayForecast } from '../interfaces/DailyStepForecast';
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { WeatherService } from '../services/weather.service';
 
 @Component({
@@ -9,24 +8,20 @@ import { WeatherService } from '../services/weather.service';
   styleUrls: ['./daily-step-forecast.component.scss']
 })
 export class DailyStepForecastComponent implements OnInit {
-  private _data = new BehaviorSubject<any>([]);
 
- // DailyStepForecastData: any
   columnsToDisplay: string[] = [];
-  columnsNames : string[] = [];
 
-  @Input() DailyStepForecast!: DayForecast[];
-  //@Input() columnsToDisplay!: any
-
-  constructor(public weatherService: WeatherService,) { }
+  constructor(
+    public weatherService: WeatherService,
+    public translate: TranslateService,
+    ) { }
 
   ngOnInit(): void {
-    this.columnsToDisplay = ['valid_date','temp','weather','wind_spd','pres','rh'];
-    //this.columnsNames = ['Температура','Погода','Скорость ветра','Давление','Относительная влажность']
-    //this.DailyStepForecastData = this.DailyStepForecast.data;
-    //console.log(this.DailyStepForecastData)
-    //this.columnsToDisplay = keyof DayForecast;
-    //console.log(Object.keys(this.DailyStepForecast))
+    this.columnsToDisplay = ['valid_date','weather','wind_spd','pres','rh'];
+  }
+
+  addSignToTemp(temp: number): string {
+    return `${Math.sign(temp) >= 0 ? '+' : '-'}${Math.round(temp)}`;
   }
 
 }
