@@ -30,6 +30,7 @@ import { SunriseWeatherComponent } from './sunrise-weather/sunrise-weather.compo
 import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
 import { SwiperModule } from 'swiper/angular';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { FooterComponent } from './footer/footer.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -49,6 +50,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SunriseWeatherComponent,
     HourlyForecastComponent,
     SpinnerComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserAnimationsModule,
