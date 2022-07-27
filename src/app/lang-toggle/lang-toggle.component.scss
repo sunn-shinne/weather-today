@@ -1,9 +1,10 @@
 .mat-button-toggle-group {
+  box-sizing: border-box;
   height: 40px;
 
-  border-radius: 0;
-  border: none;
   filter: var(--drop-shadow);
+  border-radius: 0;
+  border: 1px solid var(--secondary-dark);
   
   .mat-button-toggle {
     display: flex;
@@ -13,13 +14,13 @@
     color: var(--primary-dark);
     
     background-color: var(--secondary);
-    border: 1px solid var(--secondary-dark);
+    border: none;
   }
 
   .mat-button-toggle-checked {
     color: var(--text-light);
-  
+    font-weight: 600;
+
     background-color: var(--primary);
-    border: 1px solid var(--primary-dark);
   }
 }

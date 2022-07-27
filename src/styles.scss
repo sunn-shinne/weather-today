@@ -63,6 +63,12 @@ html {
     color: var(--text-dark);
     font: normal 16px/1 "Open Sans", sans-serif;  
 
+    app-root {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
     h1 {
       color: var(--primary-dark);
       font: 38px/0.8 Questrial, sans-serif;
