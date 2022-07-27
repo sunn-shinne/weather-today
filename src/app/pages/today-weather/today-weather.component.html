@@ -1,8 +1,8 @@
 <div class="weather" [ngSwitch]="requestState">
   <ng-template ngSwitchCase="fulfilled">
-    <app-right-now-weather [rightNowWeather]="rightNowWeather" class="weather__now"></app-right-now-weather>
+    <app-right-now-weather class="weather__now"></app-right-now-weather>
     <app-sunrise-weather class="weather__sunrise"></app-sunrise-weather>
-    <app-hourly-forecast class="weather__by-hours" [forecast]="weatherForecast"></app-hourly-forecast>
+    <app-hourly-forecast class="weather__by-hours"></app-hourly-forecast>
   </ng-template>
 
   <ng-template ngSwitchCase="loading">

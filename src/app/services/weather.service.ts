@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CurrentWeather } from '../interfaces/CurrentWeather';
 import { Forecast } from '../interfaces/Forecast';
-import { CityCoordinates } from '../interfaces/CityCoordinates';
 import { AirPollution } from '../interfaces/AirPollution';
 import { RightNowWeather } from '../interfaces/RightNowWeather';
 
@@ -12,6 +11,9 @@ import { RightNowWeather } from '../interfaces/RightNowWeather';
   providedIn: 'root',
 })
 export class WeatherService {
+  rightNowWeather!: RightNowWeather;
+  weatherForecast!: Forecast;
+
   constructor(private http: HttpClient) {}
 
   getCurrentWeatherByCoordinates(
