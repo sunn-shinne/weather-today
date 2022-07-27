@@ -7,6 +7,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -20,18 +22,22 @@ import { TomorrowWeatherComponent } from './pages/tomorrow-weather/tomorrow-weat
 import { FiveDaysWeatherComponent } from './pages/five-days-weather/five-days-weather.component';
 import { RightNowWeatherComponent } from './right-now-weather/right-now-weather.component';
 
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SunriseWeatherComponent } from './sunrise-weather/sunrise-weather.component';
 import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
 import { SwiperModule } from 'swiper/angular';
+import { SpinnerComponent } from './spinner/spinner.component';
 import { FooterComponent } from './footer/footer.component';
 import { DailyStepForecastComponent } from './daily-step-forecast/daily-step-forecast.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
 
 @NgModule({
   declarations: [
@@ -46,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FiveDaysWeatherComponent,
     SunriseWeatherComponent,
     HourlyForecastComponent,
+    SpinnerComponent,
     FooterComponent,
     DailyStepForecastComponent,
   ],
@@ -55,6 +62,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     HttpClientModule,
     MatNativeDateModule,
+    MatProgressSpinnerModule,
     AppRoutingModule,
     ReactiveFormsModule,
     MatButtonToggleModule,
@@ -66,9 +74,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

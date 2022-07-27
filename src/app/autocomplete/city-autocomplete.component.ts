@@ -68,6 +68,6 @@ export class CityAutocompleteComponent implements OnDestroy, OnInit {
 
   optionSelectionChange(option: PlaceSuggestion) {
     this.choosenOption = option;
-    this.locationSerice.emitLocationChange(option);
+    this.locationSerice.nextLocation(option);
   }
 }
