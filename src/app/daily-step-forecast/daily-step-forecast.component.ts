@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { WeatherService } from '../services/weather.service';
 
@@ -8,6 +8,15 @@ import { WeatherService } from '../services/weather.service';
   styleUrls: ['./daily-step-forecast.component.scss']
 })
 export class DailyStepForecastComponent implements OnInit {
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+   if(window.innerWidth < 760) {
+    this.columnsToDisplay = ['valid_date','weather'];
+   } else {
+    this.columnsToDisplay = ['valid_date','weather','wind_spd','pres','rh'];
+   }
+}
 
   columnsToDisplay: string[] = [];
 

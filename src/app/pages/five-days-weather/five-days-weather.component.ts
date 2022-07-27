@@ -45,13 +45,12 @@ export class FiveDaysWeatherComponent implements OnInit {
         next: ({ data }) => {
           this.weatherService.DailyStepForecast = data;
           this.requestState = 'fulfilled';
-          //console.log(data)
         },
         error: () => (this.requestState = 'failed'),
       });
-      /*((data) => {
-        this.fiveDaysForecast = data.data;
-        this.dayInfoParametrs = Object.keys(data.data[0])
-      }); //this.fiveDaysForecast = data*/
+  }
+
+  ngOnDestroy(): void {
+    this.fiveDaysForecastSub.unsubscribe();
   }
 }

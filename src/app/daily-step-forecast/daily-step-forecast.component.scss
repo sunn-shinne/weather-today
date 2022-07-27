@@ -1,5 +1,6 @@
 .daily-step-forecast{
   width: 100%;
+  padding: 0 20px;
   background-color: white;
   filter: var(--drop-shadow);
 
@@ -23,4 +24,30 @@
     font-size: 40px;
     color: var(--primary);
   }
+}
+
+.wind__info{
+  display: flex;
+  align-items: center;
+  .wind__icon{
+    margin-right: 20px;
+    font-size: 25px;
+    color: var(--primary);
+  }
+}
+
+.weather-column{
+  width: 33%;
+}
+
+.wind-column,.pres-column,.rh-column{
+  width: 15%;
+}
+
+td.mat-cell {
+  border-bottom: 1px solid #A4A4A4;
+}
+
+th.mat-header-cell{
+  border-bottom: 1px solid #A4A4A4;
 }
