@@ -1,27 +1,27 @@
 .navs {
+  display: inline-block;
   margin-bottom: 20px;
-
+  
   .navs__link {
     white-space: nowrap;
     overflow: hidden; 
     text-overflow: ellipsis;
     
     padding: 5px 30px;
-
+    
     text-align: center;
     color: var(--text-dark);
     text-decoration: none;
-
+    
     background-color: var(--secondary);
     border: 1px solid var(--secondary-dark);
-
   }
 
   .selected {
     color: var(--text-light);
+    font-weight: 600;
 
     background-color: var(--primary);
-    border: 1px solid var(--primary-dark);
   }
 }
 
