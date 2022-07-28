@@ -15,10 +15,10 @@ export class TodayWeatherComponent implements OnInit, OnDestroy {
   constructor(
     public weatherService: WeatherService,
     private locationService: LocationService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    if (!this.weatherService.rightNowWeather || !this.weatherService.weatherForecast) {
+    if (!this.weatherService.rightNowWeather || !this.weatherService.weatherForecast || !this.weatherService.sunriseSunsetTime) {
       this.requestState = 'loading';
     } else {
       this.requestState = 'fulfilled';
@@ -30,16 +30,19 @@ export class TodayWeatherComponent implements OnInit, OnDestroy {
           forkJoin({
             rightNow: this.weatherService
               .getCurrentWeatherByCoordinates(place.cords.lat, place.cords.lon)
-              .pipe(map((data) =>this.weatherService.normolizeRightNowWeatherData(data))),
+              .pipe(map((data) => this.weatherService.normolizeRightNowWeatherData(data))),
             forecast: this.weatherService
               .getForecastByCoordinates(place.cords.lat, place.cords.lon),
+            sunriseAndSunset: this.weatherService
+              .getSunriseAndSunset(place.cords.lat, place.cords.lon)
           })
         )
       )
       .subscribe({
-        next: ({ rightNow, forecast }) => {
+        next: ({ rightNow, forecast, sunriseAndSunset }) => {
           this.weatherService.rightNowWeather = rightNow;
           this.weatherService.weatherForecast = forecast;
+          this.weatherService.sunriseSunsetTime = sunriseAndSunset;
           this.requestState = 'fulfilled';
         },
         error: () => (this.requestState = 'failed'),

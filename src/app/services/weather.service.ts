@@ -6,6 +6,7 @@ import { CurrentWeather } from '../interfaces/CurrentWeather';
 import { Forecast } from '../interfaces/Forecast';
 import { AirPollution } from '../interfaces/AirPollution';
 import { RightNowWeather } from '../interfaces/RightNowWeather';
+import { SunriseSunset } from '../interfaces/SunriseSunset';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +14,9 @@ import { RightNowWeather } from '../interfaces/RightNowWeather';
 export class WeatherService {
   rightNowWeather!: RightNowWeather;
   weatherForecast!: Forecast;
+  sunriseSunsetTime!: SunriseSunset;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getCurrentWeatherByCoordinates(
     latitude: string | number,
@@ -33,9 +35,8 @@ export class WeatherService {
       temp: `${Math.sign(data.main.temp) >= 0 ? '+' : '-'}${Math.round(
         data.main.temp
       )}`,
-      feels_like: `${
-        Math.sign(data.main.feels_like) >= 0 ? '+' : '-'
-      }${Math.round(data.main.feels_like)}`,
+      feels_like: `${Math.sign(data.main.feels_like) >= 0 ? '+' : '-'
+        }${Math.round(data.main.feels_like)}`,
       humidity: data.main.humidity,
       pressure: data.main.pressure,
       visibility: data.visibility,
@@ -55,6 +56,15 @@ export class WeatherService {
     return this.http.get<Forecast>(
       `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=${langShort}&cnt=${numberOfTimestamps}&units=metric&appid=${environment.openWeather.API_key}`
     );
+  }
+
+  getSunriseAndSunset(
+    latitude: string | number,
+    longitude: string | number,
+  ): Observable<SunriseSunset> {
+    return this.http.get<SunriseSunset>(
+      `http://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=today&formatted=0`
+    )
   }
 
   getCurrentAirPollution(

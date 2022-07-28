@@ -7,7 +7,7 @@
     <swiper #swiperRef [config]="config">
       <ng-template swiperSlide *ngFor="let forecast of weatherService.weatherForecast.list">
         
-        <p class="forecast__date">{{ forecast.dt_txt | date:'h:mm a z' }}</p>
+        <p class="forecast__date">{{ forecast.dt_txt | date:'h:mm a' }}</p>
         <div class="forecast__main-info">
           <i class="wi forecast__icon" [ngClass]="addWiOwm(forecast.weather[0].id) || ''"></i>
           <p class="forecast__text">{{forecast.weather[0].description | titlecase}}</p>
