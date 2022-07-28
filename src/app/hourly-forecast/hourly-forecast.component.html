@@ -7,15 +7,15 @@
     <swiper #swiperRef [config]="config">
       <ng-template swiperSlide *ngFor="let forecast of weatherService.weatherForecast.list">
         
-        <p class="forecast__date">{{ forecast.dt_txt | date:'h:mm a z' }}</p>
+        <p class="forecast__date">{{ forecast.dt_txt | date:'HH:mm' }}</p>
         <div class="forecast__main-info">
           <i class="wi forecast__icon" [ngClass]="addWiOwm(forecast.weather[0].id) || ''"></i>
           <p class="forecast__text">{{forecast.weather[0].description | titlecase}}</p>
         </div>
 
         <div class="forecast__value">{{ addSignToTemp(forecast.main.temp) }}</div>
-        <div class="forecast__value">{{ forecast.wind?.speed }} m/s</div>
-        <div class="forecast__value">{{ forecast.main.pressure }} mb</div>
+        <div class="forecast__value">{{ forecast.wind?.speed }} {{ 'UNITS.M_S' | translate }}</div>
+        <div class="forecast__value">{{ forecast.main.pressure }} {{ 'UNITS.MB' | translate }}</div>
         <div class="forecast__value">{{ forecast.main.humidity }} %</div>       
       </ng-template>
     </swiper>
