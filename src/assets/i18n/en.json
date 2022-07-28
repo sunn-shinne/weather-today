@@ -25,6 +25,18 @@
         "SUNRISE_TIME": "Sunrise time",
         "SUNSET_TIME": "Sunset time",
         "BAYLIGHT_DURATION": "Baylight duration",
-        "SOLAR_ELEVATION_ANGLE": "Solar elevation angle"
+        "SOLAR_ELEVATION_ANGLE": "Solar elevation angle",
+        "MAXIMUM_TEMPERATURE": "Maximum Temperature",
+        "MINIMUM_TEMPERATURE": "Minimum Temperature",
+        "PROBABILITY_OF_PRECIPITATION": "Probability of Precipitation",
+        "SNOW_DEPTH": "Snow Depth",
+        "CLOUD_COVERAGE": "Cloud coverage",
+        "MAXIMUM_UV_INDEX": "Maximum UV Index",
+        "MOON_PHASE": "Moon phase"
+    },
+    "UNITS": {
+        "MM": "mm",
+        "MB": "mb",
+        "M_S": "m/s"
     }
 }
