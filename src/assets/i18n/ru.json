@@ -26,12 +26,17 @@
         "SUNSET_TIME": "Закат",
         "BAYLIGHT_DURATION": "Продолжительность дня",
         "SOLAR_ELEVATION_ANGLE": "Высота солнца над горизонтом",
-        "Maximum_Temperature": "Максимальная температура",
-        "Minimum_Temperature": "Минимальная температура",
-        "Probability_of_Precipitation": "Вероятность осадков",
-        "Snow_Depth": "Глубина снега",
-        "Cloud_coverage": "Облачное покрытие",
-        "Maximum_UV_Index": "Максимальный УФ-индекс",
-        "Moon_phase": "Фаза луны"
+        "MAXIMUM_TEMPERATURE": "Максимальная температура",
+        "MINIMUM_TEMPERATURE": "Минимальная температура",
+        "PROBABILITY_OF_PRECIPITATION": "Вероятность осадков",
+        "SNOW_DEPTH": "Глубина снега",
+        "CLOUD_COVERAGE": "Облачное покрытие",
+        "MAXIMUM_UV_INDEX": "Максимальный УФ-индекс",
+        "MOON_PHASE": "Фаза луны"
+    },
+    "UNITS": {
+        "MM": "мм",
+        "MB": "мб",
+        "M_S": "м/с"
     }
 }

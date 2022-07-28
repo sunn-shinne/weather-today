@@ -1,22 +1,20 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Subscription, switchMap } from 'rxjs';
 import { DayForecast } from 'src/app/interfaces/DailyStepForecast';
-import { PlaceSuggestion } from 'src/app/interfaces/PlaceSuggestion';
 import { LocationService } from 'src/app/services/location.service';
 import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
-  selector: 'app-five-days-weather',
-  templateUrl: './five-days-weather.component.html',
-  styleUrls: ['./five-days-weather.component.scss'],
+  selector: 'app-sixteen-days-weather',
+  templateUrl: './sixteen-days-weather.component.html',
+  styleUrls: ['./sixteen-days-weather.component.scss'],
 })
-export class FiveDaysWeatherComponent implements OnInit {
+export class SixteenDaysWeatherComponent implements OnInit {
   requestState!: 'loading' | 'failed' | 'fulfilled';
-  currentPlace$!: EventEmitter<PlaceSuggestion>;
 
-  fiveDaysForecastSub!: Subscription;
+  sixteenDaysForecastSub!: Subscription;
 
-  fiveDaysForecast: DayForecast[] = [];
+  sixteenDaysForecast: DayForecast[] = [];
   dayInfoParametrs: Array<string> = [];
 
   constructor(
@@ -31,13 +29,13 @@ export class FiveDaysWeatherComponent implements OnInit {
       this.requestState = 'fulfilled';
     }
     
-    this.fiveDaysForecastSub = this.locationService.locationChange$
+    this.sixteenDaysForecastSub = this.locationService.locationChange$
       .pipe(
         switchMap((place) =>
           this.weatherService.getForecastByCoorDayInterval(
             place.cords.lat,
             place.cords.lon,
-            5,
+            16,
           )
         )
       ) 
@@ -51,6 +49,6 @@ export class FiveDaysWeatherComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.fiveDaysForecastSub.unsubscribe();
+    this.sixteenDaysForecastSub.unsubscribe();
   }
 }
