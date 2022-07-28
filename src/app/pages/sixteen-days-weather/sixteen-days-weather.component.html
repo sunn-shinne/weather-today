@@ -4,7 +4,9 @@
   </ng-template>
 
   <ng-template ngSwitchCase="loading">
-    <app-spinner class="spinner"></app-spinner>
+    <div class="loading">
+      <app-spinner class="spinner"></app-spinner>
+    </div> 
   </ng-template>
 
   <ng-template ngSwitchCase="failed">
