@@ -1,9 +1,9 @@
 <div class="right-now-weather">
 
   <h2 class="right-now-weather__title">
-    Weather in the
+    {{ 'TITLE.WEATHER_RIGHT_NOW_1' | translate }}
     <span class="title__city-name"> {{(locationService.locationChange$ | async)?.city}} </span> 
-    right now
+    {{ 'TITLE.WEATHER_RIGHT_NOW_2' | translate }}
   </h2>
 
   <div class="right-now-weather__main-info">
@@ -16,13 +16,13 @@
     <hr>
     <div class="info__line">
       <div class="info__line__item">
-        <span>Air temp</span>
+        <span>{{'INFO.AIR_TEMPERATURE' | translate}}</span>
         <span class="info__value">{{weatherService.rightNowWeather.temp}}</span>
       </div>
   
       <hr>
       <div class="info__line__item">
-        <span>Feels like</span>
+        <span>{{'INFO.FEELS_LIKE' | translate}}</span>
         <span class="info__value">{{weatherService.rightNowWeather.feels_like}}</span>
       </div>
     </div>
@@ -30,28 +30,28 @@
     <hr>
     <div class="info__line">
       <div class="info__line__item">
-        <span>Wind</span>
-        <span class="info__value">{{weatherService.rightNowWeather.wind.speed}} m/s</span>
+        <span>{{'INFO.WIND' | translate}}</span>
+        <span class="info__value">{{weatherService.rightNowWeather.wind.speed}} {{'UNITS.M_S' | translate}}</span>
       </div>
   
       <hr>
       <div class="info__line__item">
-        <span>Pressure</span>
-        <span class="info__value">{{weatherService.rightNowWeather.pressure}} mb</span>
+        <span>{{'INFO.PRESSURE' | translate}}</span>
+        <span class="info__value">{{weatherService.rightNowWeather.pressure}} {{'UNITS.MB' | translate}}</span>
       </div>
     </div>
 
     <hr>
     <div class="info__line">
       <div class="info__line__item">
-        <span>Humidity</span>
+        <span>{{'INFO.HUMIDITY' | translate}}</span>
         <span class="info__value">{{weatherService.rightNowWeather.humidity}}%</span>
       </div>
   
       <hr>
       <div class="info__line__item">
-        <span>Visibility</span>
-        <span class="info__value">{{weatherService.rightNowWeather.visibility}} m</span>
+        <span>{{'INFO.VISIBILITY' | translate}}</span>
+        <span class="info__value">{{weatherService.rightNowWeather.visibility}} {{'UNITS.M' | translate}}</span>
       </div>
     </div>
 

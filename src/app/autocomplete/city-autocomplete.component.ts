@@ -45,7 +45,7 @@ export class CityAutocompleteComponent implements OnDestroy, OnInit {
       },
       (err) => {
         const defaultPlace = this.locationSerice.defaultPlace;
-        this.fieldFormControl.setValue(defaultPlace);
+        this.fieldFormControl.setValue(defaultPlace.fullAddress);
         this.optionSelectionChange(defaultPlace);
       }
     );

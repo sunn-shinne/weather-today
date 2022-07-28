@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { ReplaySubject, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PlaceSuggestion } from '../interfaces/PlaceSuggestion';
@@ -17,8 +18,7 @@ interface GeocodingFeatureProperties {
 })
 export class LocationService {
   locationChange$ = new ReplaySubject<PlaceSuggestion>(1);
-
-  lang = 'en';
+  currentLocation!: PlaceSuggestion;
   defaultPlace: PlaceSuggestion = {
     city: 'Moscow',
     fullAddress: 'Moscow, Russia',
@@ -28,14 +28,19 @@ export class LocationService {
     },
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private translate: TranslateService) {}
 
   nextLocation(place: PlaceSuggestion) {
+    this.currentLocation = place;
     this.locationChange$.next(place);
   }
 
+  repeatPlaceStreamValue() {
+    this.locationChange$.next(this.currentLocation);
+  }
+
   getPlaceByCords(latitude: number, longitude: number) {
-    const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&lang=${this.lang}&limit=1&type=city&apiKey=${environment.geoapify.API_key}`;
+    const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&lang=${this.translate.currentLang}&limit=1&type=city&apiKey=${environment.geoapify.API_key}`;
     return this.http
       .get(url)
       .pipe(
@@ -44,7 +49,7 @@ export class LocationService {
   }
 
   getPlaceSuggestions(text: string) {
-    const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${text}&lang=${this.lang}&limit=10&type=city&apiKey=${environment.geoapify.API_key}`;
+    const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${text}&lang=${this.translate.currentLang}&limit=10&type=city&apiKey=${environment.geoapify.API_key}`;
     return this.http.get(url).pipe(
       map((data: any) => {
         const { features } = data;

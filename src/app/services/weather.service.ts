@@ -7,6 +7,11 @@ import { Forecast } from '../interfaces/Forecast';
 import { AirPollution } from '../interfaces/AirPollution';
 import { RightNowWeather } from '../interfaces/RightNowWeather';
 import { SunriseSunset } from '../interfaces/SunriseSunset';
+import {
+  DailyStepForecast,
+  DayForecast,
+} from '../interfaces/DailyStepForecast';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root',
@@ -15,16 +20,16 @@ export class WeatherService {
   rightNowWeather!: RightNowWeather;
   weatherForecast!: Forecast;
   sunriseSunsetTime!: SunriseSunset;
+  DailyStepForecast!: DayForecast[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private translate: TranslateService) {}
 
   getCurrentWeatherByCoordinates(
     latitude: string | number,
-    longitude: string | number,
-    langShort: string = 'en'
+    longitude: string | number
   ): Observable<CurrentWeather> {
     return this.http.get<CurrentWeather>(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=${langShort}&units=metric&appid=${environment.openWeather.API_key}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=${this.translate.currentLang}&units=metric&appid=${environment.openWeather.API_key}`
     );
   }
 
@@ -50,11 +55,10 @@ export class WeatherService {
   getForecastByCoordinates(
     latitude: string | number,
     longitude: string | number,
-    langShort: string = 'en',
     numberOfTimestamps: number = 6
   ): Observable<Forecast> {
     return this.http.get<Forecast>(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=${langShort}&cnt=${numberOfTimestamps}&units=metric&appid=${environment.openWeather.API_key}`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=${this.translate.currentLang}&cnt=${numberOfTimestamps}&units=metric&appid=${environment.openWeather.API_key}`
     );
   }
 
@@ -101,12 +105,11 @@ export class WeatherService {
     latitude: string | number,
     longitude: string | number,
     numberOfDays: number = 16,
-    units: string = 'M',
-    language: string = 'en'
-  ): Observable<any> {
+    units: string = 'M'
+  ): Observable<DailyStepForecast> {
     // 500 calls/day
-    return this.http.get<any>(
-      `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&units=${units}&days=${numberOfDays}&lang=${language}&key=${environment.weatherbit.API_key}`
+    return this.http.get<DailyStepForecast>(
+      `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&units=${units}&days=${numberOfDays}&lang=${this.translate.currentLang}&key=${environment.weatherbit.API_key}`
     );
   }
 }
