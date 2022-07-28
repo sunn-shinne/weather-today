@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
-import { Subscription, switchMap } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Subscription, switchMap, tap } from 'rxjs';
 import { DayForecast } from 'src/app/interfaces/DailyStepForecast';
 import { LocationService } from 'src/app/services/location.service';
 import { WeatherService } from 'src/app/services/weather.service';
@@ -10,10 +10,9 @@ import { WeatherService } from 'src/app/services/weather.service';
   styleUrls: ['./sixteen-days-weather.component.scss'],
 })
 export class SixteenDaysWeatherComponent implements OnInit {
-  requestState!: 'loading' | 'failed' | 'fulfilled';
+  requestState: 'loading' | 'failed' | 'fulfilled' = 'loading';
 
   sixteenDaysForecastSub!: Subscription;
-
   sixteenDaysForecast: DayForecast[] = [];
   dayInfoParametrs: Array<string> = [];
 
@@ -23,22 +22,16 @@ export class SixteenDaysWeatherComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (!this.weatherService.DailyStepForecast) {
-      this.requestState = 'loading';
-    } else {
-      this.requestState = 'fulfilled';
-    }
-    
     this.sixteenDaysForecastSub = this.locationService.locationChange$
       .pipe(
         switchMap((place) =>
           this.weatherService.getForecastByCoorDayInterval(
             place.cords.lat,
             place.cords.lon,
-            16,
+            16
           )
         )
-      ) 
+      )
       .subscribe({
         next: ({ data }) => {
           this.weatherService.DailyStepForecast = data;
