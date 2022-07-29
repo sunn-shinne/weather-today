@@ -26,6 +26,12 @@
       }
     }
   }
+
+  tr:first-of-type{
+    td:first-of-type{
+      color: #A94F4F;
+    }
+  }
 }
 
 .daily-step-forecast__main-info {
