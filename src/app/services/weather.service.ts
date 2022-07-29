@@ -27,7 +27,16 @@ export class WeatherService {
     longitude: string | number
   ): Observable<CurrentWeather> {
     return this.http.get<CurrentWeather>(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=${this.translate.currentLang}&units=metric&appid=${environment.openWeather.API_key}`
+      //`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=${this.translate.currentLang}&units=metric&appid=${environment.openWeather.API_key}`
+      'https://api.openweathermap.org/data/2.5/weather',
+      {params:{
+          lat: latitude,
+          lon: longitude,
+          lang: this.translate.currentLang,
+          units: 'metric',
+          appid: environment.openWeather.API_key
+        }
+      }
     );
   }
 
@@ -57,7 +66,17 @@ export class WeatherService {
     numberOfTimestamps: number = 6
   ): Observable<Forecast> {
     return this.http.get<Forecast>(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=${this.translate.currentLang}&cnt=${numberOfTimestamps}&units=metric&appid=${environment.openWeather.API_key}`
+      //`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=${this.translate.currentLang}&cnt=${numberOfTimestamps}&units=metric&appid=${environment.openWeather.API_key}`
+      'https://api.openweathermap.org/data/2.5/forecast',
+      {params:{
+          lat: latitude,
+          lon: longitude,
+          lang: this.translate.currentLang,
+          cnt: numberOfTimestamps,
+          units: 'metric',
+          appid: environment.openWeather.API_key
+        }
+      }
     );
   }
 
@@ -66,7 +85,14 @@ export class WeatherService {
     longitude: string | number
   ): Observable<AirPollution> {
     return this.http.get<AirPollution>(
-      `https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${environment.openWeather.API_key}`
+      //`https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${environment.openWeather.API_key}`
+      'https://api.openweathermap.org/data/2.5/air_pollution',
+      {params:{
+          lat: latitude,
+          lon: longitude,
+          appid: environment.openWeather.API_key
+        }
+      }
     );
   }
 
@@ -75,7 +101,14 @@ export class WeatherService {
     longitude: string | number
   ): Observable<AirPollution> {
     return this.http.get<AirPollution>(
-      `https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${latitude}&lon=${longitude}&appid=${environment.openWeather.API_key}`
+      //`https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${latitude}&lon=${longitude}&appid=${environment.openWeather.API_key}`
+      'https://api.openweathermap.org/data/2.5/air_pollution/forecast',
+      {params:{
+          lat: latitude,
+          lon: longitude,
+          appid: environment.openWeather.API_key
+        }
+      }
     );
   }
 
@@ -87,7 +120,16 @@ export class WeatherService {
   ): Observable<AirPollution> {
     //Start/end date (unix time, UTC time zone), e.g. start=1606488670
     return this.http.get<AirPollution>(
-      `https://api.openweathermap.org/data/2.5/air_pollution/history?lat=${latitude}&lon=${longitude}&start=${startUnixTime}&end=${endUnixTime}&appid=${environment.openWeather.API_key}`
+      //`https://api.openweathermap.org/data/2.5/air_pollution/history?lat=${latitude}&lon=${longitude}&start=${startUnixTime}&end=${endUnixTime}&appid=${environment.openWeather.API_key}`
+      'https://api.openweathermap.org/data/2.5/air_pollution/history',
+      {params:{
+        lat: latitude,
+        lon: longitude,
+        start: startUnixTime,
+        end: endUnixTime,
+        appid: environment.openWeather.API_key
+      }
+    }
     );
   }
 
@@ -99,7 +141,17 @@ export class WeatherService {
   ): Observable<DailyStepForecast> {
     // 500 calls/day
     return this.http.get<DailyStepForecast>(
-      `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&units=${units}&days=${numberOfDays}&lang=${this.translate.currentLang}&key=${environment.weatherbit.API_key}`
+      //`https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&units=${units}&days=${numberOfDays}&lang=${this.translate.currentLang}&key=${environment.weatherbit.API_key}`
+      'https://api.weatherbit.io/v2.0/forecast/daily',
+      {params:{
+        lat: latitude,
+        lon: longitude,
+        units: units,
+        days: numberOfDays,
+        lang: this.translate.currentLang,
+        key: environment.weatherbit.API_key
+      }
+    }
     );
   }
 }
