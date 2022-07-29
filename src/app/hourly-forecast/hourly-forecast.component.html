@@ -1,6 +1,6 @@
 <div class="hourly-forecast">
   <h2 class="hourly-forecast__title">
-    Hourly forecast  for the
+    {{ 'TITLE.HOURLY_FORECAST' | translate }}
     <span class="title__city-name">{{(locationService.locationChange$ | async)?.city}}</span>
   </h2>
   <div>
@@ -14,8 +14,8 @@
         </div>
 
         <div class="forecast__value">{{ addSignToTemp(forecast.main.temp) }}</div>
-        <div class="forecast__value">{{ forecast.wind?.speed }} m/s</div>
-        <div class="forecast__value">{{ forecast.main.pressure }} mb</div>
+        <div class="forecast__value">{{ forecast.wind?.speed }} {{ 'UNITS.M_S' | translate }}</div>
+        <div class="forecast__value">{{ forecast.main.pressure }} {{ 'UNITS.MB' | translate }}</div>
         <div class="forecast__value">{{ forecast.main.humidity }} %</div>       
       </ng-template>
     </swiper>

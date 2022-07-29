@@ -1,5 +1,6 @@
 @import url("~@angular/material/prebuilt-themes/deeppurple-amber.css"); 
 @import url("../src/assets/icons/weather/css/weather-icons.min.css");
+@import url("../src/assets/icons/weather/css/weather-icons-wind.min.css");
 
 @font-face {
   font-family: Questrial;
@@ -62,6 +63,12 @@ html {
   
     color: var(--text-dark);
     font: normal 16px/1 "Open Sans", sans-serif;  
+
+    app-root {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
     h1 {
       color: var(--primary-dark);
