@@ -26,7 +26,8 @@
         "VISIBILITY": "Видимость",
         "SUNRISE_TIME": "Восход",
         "SUNSET_TIME": "Закат",
-        "BAYLIGHT_DURATION": "Продолжительность дня",
+        "DAYLIGHT_DURATION": "Долгота дня",
+        "SOLAR_NOON": "Полдень",
         "SOLAR_ELEVATION_ANGLE": "Высота солнца над горизонтом",
         "MAXIMUM_TEMPERATURE": "Максимальная температура",
         "MINIMUM_TEMPERATURE": "Минимальная температура",
@@ -41,6 +42,7 @@
         "MB": "мбар",
         "M_S": "м/с",
         "M": "м",
-        "KM": "км"
+        "KM": "км",
+        "H": "ч"
     }
 }

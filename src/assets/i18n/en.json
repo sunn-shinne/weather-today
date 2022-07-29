@@ -26,7 +26,8 @@
         "VISIBILITY": "Visibility",
         "SUNRISE_TIME": "Sunrise time",
         "SUNSET_TIME": "Sunset time",
-        "BAYLIGHT_DURATION": "Daylight duration",
+        "DAYLIGHT_DURATION": "Daylight duration",
+        "SOLAR_NOON": "Solar noon",
         "SOLAR_ELEVATION_ANGLE": "Solar elevation angle",
         "MAXIMUM_TEMPERATURE": "Maximum Temperature",
         "MINIMUM_TEMPERATURE": "Minimum Temperature",
@@ -41,6 +42,7 @@
         "MB": "mb",
         "M_S": "m/s",
         "M": "m",
-        "KM": "km"
+        "KM": "km",
+        "H": "h"
     }
 }
