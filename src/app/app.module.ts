@@ -38,6 +38,7 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
+import { AirPollutionComponent } from './charts/air-pollution/air-pollution.component';
 registerLocaleData(localeRu);
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -62,6 +63,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DailyStepForecastComponent,
     CapitalizePipe,
     LocalizedDatePipe,
+    AirPollutionComponent,
   ],
   imports: [
     BrowserAnimationsModule,

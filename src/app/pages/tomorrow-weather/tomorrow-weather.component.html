@@ -1,1 +1,13 @@
-<p>tomorrow-weather works!</p>
+<div class="weather" [ngSwitch]="requestState">
+  <ng-template ngSwitchCase="fulfilled">
+
+  </ng-template>
+
+  <ng-template ngSwitchCase="loading">
+    <app-spinner class="spinner"></app-spinner>
+  </ng-template>
+
+  <ng-template ngSwitchCase="failed">
+    <div>Error. Try again</div>
+  </ng-template>
+</div>

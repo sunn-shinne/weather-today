@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CurrentWeather } from '../interfaces/CurrentWeather';
 import { Forecast } from '../interfaces/Forecast';
-import { AirPollution } from '../interfaces/AirPollution';
+import { AirList, AirPollution } from '../interfaces/AirPollution';
 import { RightNowWeather } from '../interfaces/RightNowWeather';
 import { SunriseSunset } from '../interfaces/SunriseSunset';
 import {
@@ -25,6 +25,7 @@ interface TodayWeather {
 export class WeatherService {
   todayWeather: TodayWeather = {} as TodayWeather;
   DailyStepForecast!: DayForecast[];
+  AirPollutionHistory!: AirList[];
 
   constructor(private http: HttpClient, private translate: TranslateService) {}
 
