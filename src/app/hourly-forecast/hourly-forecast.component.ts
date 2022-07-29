@@ -28,7 +28,7 @@ SwiperCore.use([Pagination, Navigation, Virtual]);
 export class HourlyForecastComponent {
   @ViewChild('swiperRef', { static: false }) swiper?: SwiperComponent;
 
-  @Input() forecast: Forecast = {} as Forecast;
+  @Input() hourlyForecast: Forecast = {} as Forecast;
 
   config: SwiperOptions = {
     slidesPerView: 2,

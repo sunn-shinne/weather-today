@@ -7,8 +7,8 @@
   </h2>
 
   <div class="right-now-weather__main-info">
-    <i class="wi main-info__icon" [ngClass]="weatherService.rightNowWeather.icon_code || ''"></i>
-    <p class="main-info__text">{{weatherService.rightNowWeather.description | titlecase}}</p>
+    <i class="wi main-info__icon" [ngClass]="forecast.icon_code || ''"></i>
+    <p class="main-info__text">{{forecast.description | titlecase}}</p>
   </div>
 
   <div class="right-now-weather__info">
@@ -17,13 +17,13 @@
     <div class="info__line">
       <div class="info__line__item">
         <span>{{'INFO.AIR_TEMPERATURE' | translate}}</span>
-        <span class="info__value">{{weatherService.rightNowWeather.temp}}</span>
+        <span class="info__value">{{forecast.temp}}</span>
       </div>
   
       <hr>
       <div class="info__line__item">
         <span>{{'INFO.FEELS_LIKE' | translate}}</span>
-        <span class="info__value">{{weatherService.rightNowWeather.feels_like}}</span>
+        <span class="info__value">{{forecast.feels_like}}</span>
       </div>
     </div>
 
@@ -31,13 +31,13 @@
     <div class="info__line">
       <div class="info__line__item">
         <span>{{'INFO.WIND' | translate}}</span>
-        <span class="info__value">{{weatherService.rightNowWeather.wind.speed}} {{'UNITS.M_S' | translate}}</span>
+        <span class="info__value">{{forecast.wind.speed}} {{'UNITS.M_S' | translate}}</span>
       </div>
   
       <hr>
       <div class="info__line__item">
         <span>{{'INFO.PRESSURE' | translate}}</span>
-        <span class="info__value">{{weatherService.rightNowWeather.pressure}} {{'UNITS.MB' | translate}}</span>
+        <span class="info__value">{{forecast.pressure}} {{'UNITS.MB' | translate}}</span>
       </div>
     </div>
 
@@ -45,13 +45,13 @@
     <div class="info__line">
       <div class="info__line__item">
         <span>{{'INFO.HUMIDITY' | translate}}</span>
-        <span class="info__value">{{weatherService.rightNowWeather.humidity}}%</span>
+        <span class="info__value">{{forecast.humidity}}%</span>
       </div>
   
       <hr>
       <div class="info__line__item">
         <span>{{'INFO.VISIBILITY' | translate}}</span>
-        <span class="info__value">{{weatherService.rightNowWeather.visibility}} {{'UNITS.M' | translate}}</span>
+        <span class="info__value">{{forecast.visibility}} {{'UNITS.M' | translate}}</span>
       </div>
     </div>
 

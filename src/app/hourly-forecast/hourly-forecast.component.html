@@ -5,12 +5,12 @@
   </h2>
   <div>
     <swiper #swiperRef [config]="config">
-      <ng-template swiperSlide *ngFor="let forecast of weatherService.weatherForecast.list">
+      <ng-template swiperSlide *ngFor="let forecast of hourlyForecast.list">
         
         <p class="forecast__date">{{ forecast.dt_txt | date:'h:mm a' }}</p>
         <div class="forecast__main-info">
           <i class="wi forecast__icon" [ngClass]="addWiOwm(forecast.weather[0].id) || ''"></i>
-          <p class="forecast__text">{{forecast.weather[0].description | titlecase}}</p>
+          <p class="forecast__text">{{forecast.weather[0].description}}</p>
         </div>
 
         <div class="forecast__value">{{ addSignToTemp(forecast.main.temp) }}</div>
