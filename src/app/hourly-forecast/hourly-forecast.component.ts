@@ -1,11 +1,4 @@
-import {
-  Component,
-  Input,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, Input, ViewChild, ViewEncapsulation } from '@angular/core';
 import { SwiperComponent } from 'swiper/angular';
 import SwiperCore, {
   Pagination,
@@ -35,7 +28,6 @@ export class HourlyForecastComponent {
     spaceBetween: 30,
     navigation: true,
     grabCursor: true,
-    virtual: true,
     breakpoints: {
       1240: {
         slidesPerView: 5,
