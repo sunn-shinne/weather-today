@@ -10,22 +10,22 @@
             <div class="sunrise__time">
                 <img src="./../assets/img/sunrise-time.svg" alt="Sunrise time">
                 <span>Sunrise time</span>
-                <span class="info__value">{{weatherService.sunriseSunsetTime.results.sunrise | date: 'h:mm a'}}</span>
+                <span class="info__value">{{weatherService.sunriseSunsetTime.sunrise}}</span>
             </div>
             <div class="sunset__time">
                 <img src="./../assets/img/sunset-time.svg" alt="Sunset time">
                 <span>Sunset time</span>
-                <span class="info__value">{{weatherService.sunriseSunsetTime.results.sunset | date: 'h:mm a'}}</span>
+                <span class="info__value">{{weatherService.sunriseSunsetTime.sunset}}</span>
             </div>
         </div>
         <div class="sunrise-weather__info-main">
             <div class="info__sun">
                 <span>Daylight duration</span>
-                <span class="info__value">{{ time }}</span>
+                <span class="info__value">{{weatherService.sunriseSunsetTime.day_length}}h</span>
             </div>
             <div class="info__sun">
                 <span>Solar noon</span>
-                <span class="info__value">{{weatherService.sunriseSunsetTime.results.solar_noon | date: 'h:mm a'}}</span>
+                <span class="info__value">{{weatherService.sunriseSunsetTime.solar_noon}}</span>
             </div>
         </div>
     </div>

@@ -63,7 +63,7 @@ export class WeatherService {
     longitude: string | number,
   ): Observable<SunriseSunset> {
     return this.http.get<SunriseSunset>(
-      `http://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=today&formatted=0`
+      `https://api.ipgeolocation.io/astronomy?apiKey=${environment.ipgeolocation.API_key}&lat=${latitude}&long=${longitude}`
     )
   }
 
