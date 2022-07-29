@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { forkJoin, map, tap, Subscription, switchMap } from 'rxjs';
+import { forkJoin, map, Subscription, switchMap } from 'rxjs';
 import { LocationService } from 'src/app/services/location.service';
 import { WeatherService } from 'src/app/services/weather.service';
 
@@ -22,14 +22,14 @@ export class TodayWeatherComponent implements OnInit, OnDestroy {
       .pipe(
         switchMap((place) =>
           forkJoin({
-            rightNow: this.weatherService
+            rightNowWeather: this.weatherService
               .getCurrentWeatherByCoordinates(place.cords.lat, place.cords.lon)
               .pipe(
                 map((data) =>
                   this.weatherService.normolizeRightNowWeatherData(data)
                 )
               ),
-            forecast: this.weatherService.getForecastByCoordinates(
+            hourlyForcast: this.weatherService.getForecastByCoordinates(
               place.cords.lat,
               place.cords.lon
             ),
@@ -37,9 +37,9 @@ export class TodayWeatherComponent implements OnInit, OnDestroy {
         )
       )
       .subscribe({
-        next: ({ rightNow, forecast }) => {
-          this.weatherService.rightNowWeather = rightNow;
-          this.weatherService.weatherForecast = forecast;
+        next: (todayWeather) => {
+          console.log(todayWeather.hourlyForcast);
+          this.weatherService.todayWeather = todayWeather;
           this.requestState = 'fulfilled';
         },
         error: () => (this.requestState = 'failed'),
