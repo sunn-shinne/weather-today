@@ -22,6 +22,9 @@ export const environment = {
   geoapify: {
     API_key: '0bf19c647a9d45ca82151ca13339a341',
   },
+  ipgeolocation: {
+    API_key: '32e4db999ed54cdfaa2d17bf5eea3273'
+  }
 };
 
 /*

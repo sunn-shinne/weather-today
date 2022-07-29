@@ -33,12 +33,15 @@ export class TodayWeatherComponent implements OnInit, OnDestroy {
               place.cords.lat,
               place.cords.lon
             ),
+            sunriseSunsetTime: this.weatherService.getSunriseAndSunset(
+              place.cords.lat,
+              place.cords.lon
+            ),
           })
         )
       )
       .subscribe({
         next: (todayWeather) => {
-          console.log(todayWeather.hourlyForcast);
           this.weatherService.todayWeather = todayWeather;
           this.requestState = 'fulfilled';
         },
