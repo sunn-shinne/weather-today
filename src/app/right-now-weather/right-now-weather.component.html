@@ -8,7 +8,7 @@
 
   <div class="right-now-weather__main-info">
     <i class="wi main-info__icon" [ngClass]="forecast.icon_code || ''"></i>
-    <p class="main-info__text">{{forecast.description | titlecase}}</p>
+    <p class="main-info__text">{{forecast.description | capitalize}}</p>
   </div>
 
   <div class="right-now-weather__info">

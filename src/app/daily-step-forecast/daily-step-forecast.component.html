@@ -11,7 +11,7 @@
       <div class="daily-step-forecast__main-info">
         <div>{{ addSignToTemp(element.temp) }}</div>
         <i class="wi main-info__icon" [ngClass]="'wi-owm-' + element.weather.code || ''"></i>
-        <p>{{element.weather.description | titlecase}}</p>
+        <p>{{element.weather.description | capitalize}}</p>
       </div>
     </td>
   </ng-container>
