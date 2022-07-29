@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { forkJoin, map, tap, Subscription, switchMap } from 'rxjs';
+import { forkJoin, map, Subscription, switchMap } from 'rxjs';
 import { LocationService } from 'src/app/services/location.service';
 import { WeatherService } from 'src/app/services/weather.service';
 
@@ -15,28 +15,34 @@ export class TodayWeatherComponent implements OnInit, OnDestroy {
   constructor(
     public weatherService: WeatherService,
     private locationService: LocationService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.weatherSub = this.locationService.locationChange$
       .pipe(
         switchMap((place) =>
           forkJoin({
-            rightNow: this.weatherService
+            rightNowWeather: this.weatherService
               .getCurrentWeatherByCoordinates(place.cords.lat, place.cords.lon)
-              .pipe(map((data) => this.weatherService.normolizeRightNowWeatherData(data))),
-            forecast: this.weatherService
-              .getForecastByCoordinates(place.cords.lat, place.cords.lon),
-            sunriseAndSunset: this.weatherService
-              .getSunriseAndSunset(place.cords.lat, place.cords.lon)
+              .pipe(
+                map((data) =>
+                  this.weatherService.normolizeRightNowWeatherData(data)
+                )
+              ),
+            hourlyForcast: this.weatherService.getForecastByCoordinates(
+              place.cords.lat,
+              place.cords.lon
+            ),
+            sunriseSunsetTime: this.weatherService.getSunriseAndSunset(
+              place.cords.lat,
+              place.cords.lon
+            ),
           })
         )
       )
       .subscribe({
-        next: ({ rightNow, forecast, sunriseAndSunset }) => {
-          this.weatherService.rightNowWeather = rightNow;
-          this.weatherService.weatherForecast = forecast;
-          this.weatherService.sunriseSunsetTime = sunriseAndSunset;
+        next: (todayWeather) => {
+          this.weatherService.todayWeather = todayWeather;
           this.requestState = 'fulfilled';
         },
         error: () => (this.requestState = 'failed'),

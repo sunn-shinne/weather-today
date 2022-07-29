@@ -40,17 +40,35 @@ export class LocationService {
   }
 
   getPlaceByCords(latitude: number, longitude: number) {
-    const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&lang=${this.translate.currentLang}&limit=1&type=city&apiKey=${environment.geoapify.API_key}`;
-    return this.http
-      .get(url)
+    //const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&lang=${this.translate.currentLang}&limit=1&type=city&apiKey=${environment.geoapify.API_key}`;
+    return this.http.get('https://api.geoapify.com/v1/geocode/reverse',
+        {params:{
+          lat: latitude,
+          lon: longitude,
+          lang: this.translate.currentLang,
+          limit: '1',
+          type: 'city',
+          apiKey: environment.geoapify.API_key
+          }
+        }
+      )
       .pipe(
         map((data: any) => this.generatePlaceItem(data.features[0].properties))
       );
   }
 
   getPlaceSuggestions(text: string) {
-    const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${text}&lang=${this.translate.currentLang}&limit=10&type=city&apiKey=${environment.geoapify.API_key}`;
-    return this.http.get(url).pipe(
+    //const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${text}&lang=${this.translate.currentLang}&limit=10&type=city&apiKey=${environment.geoapify.API_key}`;
+    return this.http.get('https://api.geoapify.com/v1/geocode/autocomplete',
+      {params:{
+        text: text,
+        lang: this.translate.currentLang,
+        limit: '10',
+        type: 'city',
+        apiKey: environment.geoapify.API_key
+        }
+      }
+    ).pipe(
       map((data: any) => {
         const { features } = data;
         const placeSuggestions = features

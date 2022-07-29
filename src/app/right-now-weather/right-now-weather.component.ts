@@ -9,7 +9,7 @@ import { WeatherService } from '../services/weather.service';
   styleUrls: ['./right-now-weather.component.scss'],
 })
 export class RightNowWeatherComponent implements OnInit {
-  @Input() rightNowWeather!: RightNowWeather;
+  @Input() forecast!: RightNowWeather;
 
   constructor(
     public locationService: LocationService,

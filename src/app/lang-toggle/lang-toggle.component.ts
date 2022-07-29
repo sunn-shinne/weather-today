@@ -20,6 +20,7 @@ export class LangToggleComponent {
 
   onChangeLanguage(event: any) {
     this.translate.use(event.value);
+    this.translate.currentLang = event.value;
     this.locationService.repeatPlaceStreamValue();
   }
 }

@@ -4,10 +4,15 @@
     justify-content: center;
     text-align: center;
     box-sizing: border-box;
+    overflow: hidden;
     
     .sunrise-weather__img {
+        img {
+            max-width: 100%;
+            height: auto;
+            position: relative;
+        }
         padding: 0 30px;
-        margin: 0 auto;
         object-fit: cover;
     }
 
@@ -44,38 +49,60 @@
         flex-direction: column;
         justify-content: center;
         position: absolute;
-        height: 45%;
+        height: 50%;
         width: 100%;
         background: linear-gradient(178.39deg, rgba(255, 255, 255, 0) 1.37%, #FFFFFF 19.69%);
-        //background-color: blue;
-        top: 55%;
-    }
+        top: 50%;
+        
+        .sunrise-weather__info-main{
+            display: flex;
+            flex-direction: column;
+            padding-top: 30px;
+        }
 
+        .info__value {
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .info__sun {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0 60px 16px 60px;
+        } 
+    }
 
     hr {
         margin: 0 45px;
         z-index: 10;
         position: relative;
         bottom: 1.4em;
-    }
+    }    
+}
+
+@media (max-width: 965px) {
     
-    .info__value {
-        font-size: 16px;
-        font-weight: 300;
-    }
+    .sunrise-weather {
+        .info__sun {
+            margin: 0 20px 10px 20px;
+        } 
 
-    .sunrise-weather__info-main{
-        display: flex;
-        flex-direction: column;
-        padding-top: 30px;
-        
+        .sunrise-weather__info {
+            height: 62%;
+            top: 38%; 
+        }
     }
+}
 
-    .info__sun {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin: 0 60px 16px 60px;
+@media (max-width: 420px) {
+    .sunrise-weather {
+        position: relative;
+        font-size: 14px;
         
-    } 
+        .sunrise-weather__info {
+            height: 70%;
+            top: 30%;
+        }
+    }
 }
