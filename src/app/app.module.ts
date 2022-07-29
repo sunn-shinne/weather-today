@@ -9,7 +9,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -34,6 +33,12 @@ import { SwiperModule } from 'swiper/angular';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { FooterComponent } from './footer/footer.component';
 import { DailyStepForecastComponent } from './daily-step-forecast/daily-step-forecast.component';
+import { CapitalizePipe } from './pipes/capitalize.pipe';
+
+import { LocalizedDatePipe } from './pipes/localized-date.pipe';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+registerLocaleData(localeRu);
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -55,6 +60,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SpinnerComponent,
     FooterComponent,
     DailyStepForecastComponent,
+    CapitalizePipe,
+    LocalizedDatePipe,
   ],
   imports: [
     BrowserAnimationsModule,
