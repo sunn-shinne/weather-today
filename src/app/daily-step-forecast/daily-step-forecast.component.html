@@ -2,7 +2,7 @@
 
   <ng-container matColumnDef="valid_date">
     <th mat-header-cell *matHeaderCellDef> </th>
-    <td mat-cell *matCellDef="let element"> {{element.valid_date | localizedDate : 'MMM d' }} </td>
+    <td mat-cell *matCellDef="let element"> {{element.valid_date | localizedDate : 'EEE, MMM d' }} </td>
   </ng-container>
 
   <ng-container class="daily-step-forecast__weather" matColumnDef="weather">
