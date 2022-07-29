@@ -5,7 +5,7 @@
   filter: var(--drop-shadow);
 
   :nth-child(n){
-    font-size: 19px;
+    font-size: 18px;
     color: var(--text-dark);
     padding-top: 4px;
     padding-bottom: 4px;
@@ -18,7 +18,7 @@
   align-items: center;
   gap: 20px;
 
-  font-size: 16px;
+  font-size: 15px;
 
   .main-info__icon {
     font-size: 40px;
@@ -69,18 +69,40 @@ tr.element-row:not(.expanded-row):active {
   border-bottom-width: 0;
 }
 
-.element-detail {
-  overflow: hidden;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
-  :nth-child(n){
-    flex: 1 0 21%;
-    white-space: nowrap;
+.mat-column-expandedDetail {
+
+  .element-detail {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    overflow: hidden;
+    gap: 40px;
+  }
+  
+  .element-detail__col {
+    flex-grow: 1;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      white-space: nowrap;
+      
+      .element-detail__value {
+        text-align: right;
+        font-weight: 300;
+      }
+    }
   }
 }
 
-.mat-column-expandedDetail{
-  padding: 0;
+@media (max-width: 760px) {
+  .mat-column-expandedDetail {
+    .element-detail {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
 }
+
