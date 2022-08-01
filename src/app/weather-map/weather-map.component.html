@@ -1,0 +1,15 @@
+<div class="weather-map">
+  <h2 class="weather-map__title">
+    {{'TITLE.WEATHER_MAP' | translate}}
+    <span class="title__city-name">{{locationService.currentLocation.city}}</span>
+  </h2>
+  
+  <div class="weather-map__map-wrapper">
+    <div
+      id="map"
+      leaflet 
+      [leafletOptions]="options"
+      [leafletBaseLayers]="baseLayers"
+    ></div>
+  </div>
+</div>
