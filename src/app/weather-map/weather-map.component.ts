@@ -26,19 +26,24 @@ export class WeatherMapComponent {
 
   baseLayers = {
     Precipitation: L.tileLayer(
-      `https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${environment.openWeather.API_key}`
+      `https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${environment.openWeather.API_key}`,
+      { maxZoom: 12 }
     ),
     Temperature: L.tileLayer(
-      `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${environment.openWeather.API_key}`
+      `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${environment.openWeather.API_key}`,
+      { maxZoom: 12 }
     ),
     'Wind speed': L.tileLayer(
-      `https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=${environment.openWeather.API_key}`
+      `https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=${environment.openWeather.API_key}`,
+      { maxZoom: 12 }
     ),
     Clouds: L.tileLayer(
-      `https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${environment.openWeather.API_key}`
+      `https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${environment.openWeather.API_key}`,
+      { maxZoom: 12 }
     ),
     'Sea level pressure': L.tileLayer(
-      `https://tile.openweathermap.org/map/pressure_new/{z}/{x}/{y}.png?appid=${environment.openWeather.API_key}`
+      `https://tile.openweathermap.org/map/pressure_new/{z}/{x}/{y}.png?appid=${environment.openWeather.API_key}`,
+      { maxZoom: 12 }
     ),
   };
 
