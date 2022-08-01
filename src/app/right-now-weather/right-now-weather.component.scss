@@ -54,6 +54,18 @@
   }
 }
 
+.wind-info{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-top: -5px;
+  .wind__icon{
+    margin-right: 5px;
+    font-size: 25px;
+    color: var(--primary);
+  }
+}
+
 @media (max-width: 900px) {
   .main-info__icon {
     font-size: 150px !important;

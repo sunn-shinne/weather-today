@@ -8,7 +8,7 @@
 }
 
 .swiper-wrapper{
-  & :nth-child(n){
+  & .swiper-slide{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -67,5 +67,17 @@
   
   .forecast__text{
     margin-top: 5px;
+  }
+}
+
+.wind__info{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  .wind__icon{
+    font-size: 25px;
+    color: var(--primary);
   }
 }
