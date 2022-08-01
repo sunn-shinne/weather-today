@@ -11,7 +11,7 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class WeatherСhartsComponent implements OnInit, OnDestroy {
   requestState: 'loading' | 'failed' | 'fulfilled' = 'loading';
 
-  airPpollutionSub!: Subscription;
+  hourlyForecastSub!: Subscription;
 
   constructor(
     public weatherService: WeatherService,
@@ -19,29 +19,28 @@ export class WeatherСhartsComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit(): void {
-    this.airPpollutionSub = this.locationService.locationChange$
+    this.hourlyForecastSub = this.locationService.locationChange$
       .pipe(
         switchMap((place) =>
-          this.weatherService.getHistoricalAirPollution(
+          this.weatherService.getHourlyForecast(
             place.cords.lat,
             place.cords.lon,
-            1596029995,
-            Math.floor(new Date().getTime() / 1000)
+            2
           )
         )
       )
       .subscribe({
-        next: ({ list }) => {
-          this.weatherService.AirPollutionHistory = list;
+        next: ( value ) => {
+          this.weatherService.hourlyForecast = value.forecast.forecastday[0].hour.concat(value.forecast.forecastday[1].hour);
           this.requestState = 'fulfilled';
-          console.log(list)
+          console.log(value.forecast.forecastday[0].hour.concat(value.forecast.forecastday[1].hour))
         },
         error: () => (this.requestState = 'failed'),
       });
   }
 
   ngOnDestroy(): void {
-    this.airPpollutionSub.unsubscribe();
+    this.hourlyForecastSub.unsubscribe();
   }
 
 }

@@ -12,6 +12,7 @@ import {
   DayForecast,
 } from '../interfaces/DailyStepForecast';
 import { TranslateService } from '@ngx-translate/core';
+import { HourlyForecast } from '../interfaces/HourlyForecast';
 
 interface TodayWeather {
   rightNowWeather: RightNowWeather;
@@ -25,7 +26,7 @@ interface TodayWeather {
 export class WeatherService {
   todayWeather: TodayWeather = {} as TodayWeather;
   DailyStepForecast!: DayForecast[];
-  AirPollutionHistory!: AirList[];
+  hourlyForecast!: any;
 
   constructor(private http: HttpClient, private translate: TranslateService) {}
 
@@ -175,5 +176,23 @@ export class WeatherService {
         },
       }
     );
+  }
+
+  getHourlyForecast(
+    latitude: string | number,
+    longitude: string | number,
+    numberOfDays: number = 5,
+  ): Observable<HourlyForecast> {
+    return this.http.get<HourlyForecast>(
+      `https://api.weatherapi.com/v1/forecast.json`,
+      {
+        params: {
+          q: `${latitude},${longitude}`,
+          days: numberOfDays,
+          lang: this.translate.currentLang,
+          key: environment.weatherapi.API_key
+        },
+      }
+    )
   }
 }
