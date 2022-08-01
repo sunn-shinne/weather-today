@@ -12,7 +12,7 @@ import {
   DayForecast,
 } from '../interfaces/DailyStepForecast';
 import { TranslateService } from '@ngx-translate/core';
-import { HourlyForecast } from '../interfaces/HourlyForecast';
+import { Hour, HourlyForecast } from '../interfaces/HourlyForecast';
 
 interface TodayWeather {
   rightNowWeather: RightNowWeather;
@@ -26,7 +26,7 @@ interface TodayWeather {
 export class WeatherService {
   todayWeather: TodayWeather = {} as TodayWeather;
   DailyStepForecast!: DayForecast[];
-  hourlyForecast!: any;
+  hourlyForecast!: Hour[];
 
   constructor(private http: HttpClient, private translate: TranslateService) {}
 

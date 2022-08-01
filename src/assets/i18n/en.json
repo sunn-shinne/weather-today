@@ -36,7 +36,8 @@
         "SNOW_DEPTH": "Snow Depth",
         "CLOUD_COVERAGE": "Cloud coverage",
         "MAXIMUM_UV_INDEX": "Maximum UV Index",
-        "MOON_PHASE": "Moon phase"
+        "MOON_PHASE": "Moon phase",
+        "PRECIPITATION_AMOUNT": "Precipitation amount in millimeters"
     },
     "UNITS": {
         "MM": "mm",

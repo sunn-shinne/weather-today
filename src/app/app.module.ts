@@ -41,6 +41,7 @@ import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 import { AirPollutionComponent } from './charts/air-pollution/air-pollution.component';
+import { AmountOfPrecipitationComponent } from './charts/amount-of-precipitation/amount-of-precipitation.component';
 registerLocaleData(localeRu);
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -67,6 +68,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LocalizedDatePipe,
     AirPollutionComponent,
     WeatherMapComponent,
+    AmountOfPrecipitationComponent,
   ],
   imports: [
     BrowserAnimationsModule,

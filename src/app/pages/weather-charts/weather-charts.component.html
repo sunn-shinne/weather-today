@@ -1,6 +1,6 @@
 <div class="weather" [ngSwitch]="requestState">
   <ng-template ngSwitchCase="fulfilled">
-  
+    <app-amount-of-precipitation [chartName]="'INFO.PRECIPITATION_AMOUNT' | translate"></app-amount-of-precipitation>
   </ng-template>
 
   <ng-template ngSwitchCase="loading">

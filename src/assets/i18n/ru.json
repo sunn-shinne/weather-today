@@ -36,7 +36,8 @@
         "SNOW_DEPTH": "Глубина снега",
         "CLOUD_COVERAGE": "Облачное покрытие",
         "MAXIMUM_UV_INDEX": "Максимальный УФ-индекс",
-        "MOON_PHASE": "Фаза луны"
+        "MOON_PHASE": "Фаза луны",
+        "PRECIPITATION_AMOUNT": "Количество осадков в миллиметрах"
     },
     "UNITS": {
         "MM": "мм",

@@ -33,7 +33,6 @@ export class WeatherСhartsComponent implements OnInit, OnDestroy {
         next: ( value ) => {
           this.weatherService.hourlyForecast = value.forecast.forecastday[0].hour.concat(value.forecast.forecastday[1].hour);
           this.requestState = 'fulfilled';
-          console.log(value.forecast.forecastday[0].hour.concat(value.forecast.forecastday[1].hour))
         },
         error: () => (this.requestState = 'failed'),
       });
