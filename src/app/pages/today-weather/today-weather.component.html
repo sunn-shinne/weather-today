@@ -3,6 +3,7 @@
     <app-right-now-weather class="weather__now" [forecast]="weatherService.todayWeather.rightNowWeather"></app-right-now-weather>
     <app-sunrise-weather class="weather__sunrise" [sunriseSunsetTime]="weatherService.todayWeather.sunriseSunsetTime"></app-sunrise-weather>
     <app-hourly-forecast class="weather__by-hours" [hourlyForecast]="weatherService.todayWeather.hourlyForcast"></app-hourly-forecast>
+    <app-weather-map class="weather__map"></app-weather-map>
   </ng-template>
 
   <ng-template ngSwitchCase="loading">
