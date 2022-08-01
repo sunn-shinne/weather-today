@@ -40,6 +40,8 @@ import { WeatherMapComponent } from './weather-map/weather-map.component';
 import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 registerLocaleData(localeRu);
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -88,6 +90,12 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
     LeafletModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
