@@ -14,7 +14,7 @@
     "TITLE": { 
         "WEATHER_RIGHT_NOW_1": "Weather in the ",
         "WEATHER_RIGHT_NOW_2": " right now",
-        "MAP_OF_PRECIPITATION": "Map of the precipitation in the",
+        "WEATHER_MAP": "Weather map for the",
         "HOURLY_FORECAST": "Hourly forecast  for the "
     },
     "INFO": {

@@ -8,6 +8,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -34,6 +35,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { FooterComponent } from './footer/footer.component';
 import { DailyStepForecastComponent } from './daily-step-forecast/daily-step-forecast.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { WeatherMapComponent } from './weather-map/weather-map.component';
 
 import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { registerLocaleData } from '@angular/common';
@@ -64,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CapitalizePipe,
     LocalizedDatePipe,
     AirPollutionComponent,
+    WeatherMapComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -86,6 +89,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    LeafletModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

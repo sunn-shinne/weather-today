@@ -14,7 +14,7 @@
     "TITLE": {
         "WEATHER_RIGHT_NOW_1": "Погода в городе ",
         "WEATHER_RIGHT_NOW_2": " сейчас",
-        "MAP_OF_PRECIPITATION": "Карта осадков в городе ",
+        "WEATHER_MAP": "Карта погоды для ",
         "HOURLY_FORECAST": "Почасовой прогноз для города "
     },
     "INFO": {
