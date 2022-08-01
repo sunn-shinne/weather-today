@@ -12,3 +12,10 @@
     } 
   }
 }
+
+@media(max-width: 760px) {
+  .footer .footer__links a {
+    font-size: 10px;
+    padding: 5px;
+  }
+}
