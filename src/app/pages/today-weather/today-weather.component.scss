@@ -7,11 +7,11 @@
   width: 100%;
 
   .weather__now {
-    flex: 0 1 49%;
+    flex: 1 1 30%;
   }
 
   .weather__sunrise {
-    flex: 0 1 49%;
+    flex: 1 1 30%;
 
     background-color: var(--white);
     filter: var(--drop-shadow);
@@ -32,10 +32,12 @@
   .weather {
     .weather__now{
       flex: 100% !important;
+      max-width: 100%;
     }
     
     .weather__sunrise {
       flex: 100% !important;
+      max-width: 100%;
     }
   }
 }
