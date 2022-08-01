@@ -14,7 +14,10 @@
         </div>
 
         <div class="forecast__value">{{ addSignToTemp(forecast.main.temp) }}</div>
-        <div class="forecast__value">{{ forecast.wind?.speed }} {{ 'UNITS.M_S' | translate }}</div>
+        <div class="forecast__value wind__info">
+            <i class="wi wi-wind wind__icon" [ngClass]="'towards-' + forecast.wind?.deg  + '-deg' || ''"></i> 
+            <div>{{forecast.wind?.speed}} {{ 'UNITS.M_S' | translate }}</div>
+        </div>
         <div class="forecast__value">{{ forecast.main.pressure }} {{ 'UNITS.MB' | translate }}</div>
         <div class="forecast__value">{{ forecast.main.humidity }} %</div>       
       </ng-template>

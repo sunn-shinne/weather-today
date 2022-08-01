@@ -6,6 +6,7 @@ import { CurrentWeather } from '../interfaces/CurrentWeather';
 import { Forecast } from '../interfaces/Forecast';
 import { AirPollution } from '../interfaces/AirPollution';
 import { RightNowWeather } from '../interfaces/RightNowWeather';
+import { SunriseSunset } from '../interfaces/SunriseSunset';
 import {
   DailyStepForecast,
   DayForecast,
@@ -15,6 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 interface TodayWeather {
   rightNowWeather: RightNowWeather;
   hourlyForcast: Forecast;
+  sunriseSunsetTime: SunriseSunset;
 }
 
 @Injectable({
@@ -83,6 +85,15 @@ export class WeatherService {
           appid: environment.openWeather.API_key,
         },
       }
+    );
+  }
+
+  getSunriseAndSunset(
+    latitude: string | number,
+    longitude: string | number
+  ): Observable<SunriseSunset> {
+    return this.http.get<SunriseSunset>(
+      `https://api.ipgeolocation.io/astronomy?apiKey=${environment.ipgeolocation.API_key}&lat=${latitude}&long=${longitude}`
     );
   }
 
