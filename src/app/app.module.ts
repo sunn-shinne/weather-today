@@ -18,7 +18,7 @@ import { CityAutocompleteComponent } from './autocomplete/city-autocomplete.comp
 import { LangToggleComponent } from './lang-toggle/lang-toggle.component';
 import { NavsComponent } from './navs/navs.component';
 import { TodayWeatherComponent } from './pages/today-weather/today-weather.component';
-import { TomorrowWeatherComponent } from './pages/tomorrow-weather/tomorrow-weather.component';
+import { WeatherСhartsComponent } from './pages/weather-charts/weather-charts.component';
 import { SixteenDaysWeatherComponent } from './pages/sixteen-days-weather/sixteen-days-weather.component';
 import { RightNowWeatherComponent } from './right-now-weather/right-now-weather.component';
 
@@ -55,7 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LangToggleComponent,
     NavsComponent,
     TodayWeatherComponent,
-    TomorrowWeatherComponent,
+    WeatherСhartsComponent,
     RightNowWeatherComponent,
     SixteenDaysWeatherComponent,
     SunriseWeatherComponent,

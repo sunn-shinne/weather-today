@@ -4,11 +4,11 @@ import { LocationService } from 'src/app/services/location.service';
 import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
-  selector: 'app-tomorrow-weather',
-  templateUrl: './tomorrow-weather.component.html',
-  styleUrls: ['./tomorrow-weather.component.scss']
+  selector: 'app-weather-charts',
+  templateUrl: './weather-charts.component.html',
+  styleUrls: ['./weather-charts.component.scss']
 })
-export class TomorrowWeatherComponent implements OnInit, OnDestroy {
+export class WeatherСhartsComponent implements OnInit, OnDestroy {
   requestState: 'loading' | 'failed' | 'fulfilled' = 'loading';
 
   airPpollutionSub!: Subscription;

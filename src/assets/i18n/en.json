@@ -2,6 +2,7 @@
     "NAVS": {
         "TODAY": "Today",
         "TOMORROW": "Tomorrow",
+        "CHARTS": "Сharts",
         "FOR_5_DAYS": "For 5 days",
         "FOR_7_DAYS": "For 7 days",
         "FOR_16_DAYS": "For 16 days"
