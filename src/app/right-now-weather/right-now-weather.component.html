@@ -31,7 +31,10 @@
     <div class="info__line">
       <div class="info__line__item">
         <span>{{'INFO.WIND' | translate}}</span>
-        <span class="info__value">{{forecast.wind.speed}} {{'UNITS.M_S' | translate}}</span>
+        <div class="wind-info">
+          <i class="wi wi-wind wind__icon" [ngClass]="'towards-' + forecast.wind.deg + '-deg' || ''"></i>
+          <span class="info__value">{{forecast.wind.speed}} {{'UNITS.M_S' | translate}}</span>
+        </div>
       </div>
   
       <hr>
