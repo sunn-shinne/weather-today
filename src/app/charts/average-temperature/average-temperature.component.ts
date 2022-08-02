@@ -28,7 +28,7 @@ export class AverageTemperatureComponent implements OnInit, DoCheck {
         labels: this.getLabels(this.currentForecast),
         datasets: [
           {
-            label: this.translateService.instant('INFO.AVERAGE_TEMPERATURE'),
+            label: this.translateService.instant('INFO.AVERAGE_TEMPERATURE') + " °C",
             data: this.getData(this.currentForecast),
             backgroundColor: ['rgba(255, 233, 229)'],
             borderColor: ['rgba(246, 96, 73, .9)'],
@@ -76,7 +76,7 @@ export class AverageTemperatureComponent implements OnInit, DoCheck {
       this.currentForecast = this.weatherService.chartsData.hourlyForecast;
     }
     this.lineChart.data!.datasets[0].label = this.translateService.instant(
-      'INFO.AVERAGE_TEMPERATURE');
+      'INFO.AVERAGE_TEMPERATURE') + " °C";
     this.lineChart.update();
   }
 
