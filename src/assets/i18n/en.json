@@ -2,6 +2,7 @@
     "NAVS": {
         "TODAY": "Today",
         "TOMORROW": "Tomorrow",
+        "CHARTS": "Сharts",
         "FOR_5_DAYS": "For 5 days",
         "FOR_7_DAYS": "For 7 days",
         "FOR_16_DAYS": "For 16 days"
@@ -35,7 +36,8 @@
         "SNOW_DEPTH": "Snow Depth",
         "CLOUD_COVERAGE": "Cloud coverage",
         "MAXIMUM_UV_INDEX": "Maximum UV Index",
-        "MOON_PHASE": "Moon phase"
+        "MOON_PHASE": "Moon phase",
+        "PRECIPITATION_AMOUNT": "Precipitation amount in millimeters"
     },
     "UNITS": {
         "MM": "mm",
