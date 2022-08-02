@@ -20,13 +20,18 @@ interface TodayWeather {
   sunriseSunsetTime: SunriseSunset;
 }
 
+interface ChartsData {
+  hourlyForecast: Hour[];
+  airPolution: any;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class WeatherService {
   todayWeather: TodayWeather = {} as TodayWeather;
-  DailyStepForecast!: DayForecast[];
-  hourlyForecast!: Hour[];
+  dailyStepForecast!: DayForecast[];
+  chartsData: ChartsData = {} as ChartsData;
 
   constructor(private http: HttpClient, private translate: TranslateService) {}
 
@@ -181,7 +186,7 @@ export class WeatherService {
   getHourlyForecast(
     latitude: string | number,
     longitude: string | number,
-    numberOfDays: number = 5,
+    numberOfDays: number = 5
   ): Observable<HourlyForecast> {
     return this.http.get<HourlyForecast>(
       `https://api.weatherapi.com/v1/forecast.json`,
@@ -190,9 +195,9 @@ export class WeatherService {
           q: `${latitude},${longitude}`,
           days: numberOfDays,
           lang: this.translate.currentLang,
-          key: environment.weatherapi.API_key
+          key: environment.weatherapi.API_key,
         },
       }
-    )
+    );
   }
 }
