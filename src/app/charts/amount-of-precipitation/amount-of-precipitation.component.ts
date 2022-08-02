@@ -14,7 +14,7 @@ import * as _ from 'lodash';
   styleUrls: ['./amount-of-precipitation.component.scss'],
 })
 export class AmountOfPrecipitationComponent implements OnInit, DoCheck {
-  currentForecast = this.weatherService.hourlyForecast;
+  currentForecast = this.weatherService.chartsData.hourlyForecast;
   barChart!: Chart;
 
   constructor(
@@ -71,11 +71,11 @@ export class AmountOfPrecipitationComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void {
-    const newForecast = this.weatherService.hourlyForecast;
+    const newForecast = this.weatherService.chartsData.hourlyForecast;
     if (!_.isEqual(this.currentForecast, newForecast)) {
       this.barChart.data.datasets[0].data = this.getData(newForecast);
       this.barChart.data.labels = this.getLabels(newForecast);
-      this.currentForecast = this.weatherService.hourlyForecast;
+      this.currentForecast = this.weatherService.chartsData.hourlyForecast;
     }
     this.barChart.data!.datasets[0].label = this.translateService.instant(
       'INFO.PRECIPITATION_AMOUNT'

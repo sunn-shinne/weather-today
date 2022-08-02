@@ -34,7 +34,7 @@ export class SixteenDaysWeatherComponent implements OnInit {
       )
       .subscribe({
         next: ({ data }) => {
-          this.weatherService.DailyStepForecast = data;
+          this.weatherService.dailyStepForecast = data;
           this.requestState = 'fulfilled';
         },
         error: () => (this.requestState = 'failed'),

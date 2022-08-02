@@ -31,19 +31,13 @@ export class WeatherСhartsComponent implements OnInit, OnDestroy {
           this.weatherService.getHourlyForecast(
             place.cords.lat,
             place.cords.lon,
-            2
+            1
           )
         )
       )
       .subscribe({
         next: (value) => {
-          console.log('aaa');
-          // console.log(value.forecast.forecastday[0].hour);
-          // this.weatherService.hourlyForecast =
-          //   value.forecast.forecastday[0].hour.concat(
-          //     value.forecast.forecastday[1].hour
-          //   );
-          this.weatherService.hourlyForecast =
+          this.weatherService.chartsData.hourlyForecast =
             value.forecast.forecastday[0].hour;
           this.requestState = 'fulfilled';
         },
