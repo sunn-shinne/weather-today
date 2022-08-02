@@ -12,7 +12,7 @@
             "CHOOSE_YOUR_CITY": "Choose your city"
         }
     },
-    "TITLE": { 
+    "TITLE": {
         "WEATHER_RIGHT_NOW_1": "Weather in the ",
         "WEATHER_RIGHT_NOW_2": " right now",
         "WEATHER_MAP": "Weather map for the",
@@ -38,6 +38,7 @@
         "MAXIMUM_UV_INDEX": "Maximum UV Index",
         "MOON_PHASE": "Moon phase",
         "PRECIPITATION_AMOUNT": "Precipitation amount in millimeters",
+        "AVERAGE_TEMPERATURE": "Average temperature",
         "AIR_QUALITY_INDEX": "Air Quality Index (1 - good; 5 - very poor)"
     },
     "UNITS": {
