@@ -44,6 +44,7 @@ import { AirPollutionComponent } from './charts/air-pollution/air-pollution.comp
 import { AmountOfPrecipitationComponent } from './charts/amount-of-precipitation/amount-of-precipitation.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AverageTemperatureComponent } from './charts/average-temperature/average-temperature.component';
 
 registerLocaleData(localeRu);
 
@@ -72,6 +73,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AirPollutionComponent,
     WeatherMapComponent,
     AmountOfPrecipitationComponent,
+    AverageTemperatureComponent,
   ],
   imports: [
     BrowserAnimationsModule,
