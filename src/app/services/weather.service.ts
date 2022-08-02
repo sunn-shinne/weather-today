@@ -100,7 +100,15 @@ export class WeatherService {
     longitude: string | number
   ): Observable<SunriseSunset> {
     return this.http.get<SunriseSunset>(
-      `https://api.ipgeolocation.io/astronomy?apiKey=${environment.ipgeolocation.API_key}&lat=${latitude}&long=${longitude}`
+      // `https://api.ipgeolocation.io/astronomy?apiKey=${environment.ipgeolocation.API_key}&lat=${latitude}&long=${longitude}`
+      'https://api.ipgeolocation.io/astronomy',
+      {
+        params: {
+          apiKey: environment.ipgeolocation.API_key,
+          lat: latitude,
+          long: longitude,
+        },
+      }
     );
   }
 
