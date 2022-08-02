@@ -37,7 +37,8 @@
         "CLOUD_COVERAGE": "Облачное покрытие",
         "MAXIMUM_UV_INDEX": "Максимальный УФ-индекс",
         "MOON_PHASE": "Фаза луны",
-        "PRECIPITATION_AMOUNT": "Количество осадков в миллиметрах"
+        "PRECIPITATION_AMOUNT": "Количество осадков в миллиметрах",
+        "AIR_QUALITY_INDEX": "Индекс качества воздуха (1 - отлично; 5 - ужасно)"
     },
     "UNITS": {
         "MM": "мм",

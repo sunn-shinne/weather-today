@@ -16,13 +16,13 @@ import { Hour, HourlyForecast } from '../interfaces/HourlyForecast';
 
 interface TodayWeather {
   rightNowWeather: RightNowWeather;
-  hourlyForcast: Forecast;
+  hourlyForecast: Forecast;
   sunriseSunsetTime: SunriseSunset;
 }
 
 interface ChartsData {
   hourlyForecast: Hour[];
-  airPolution: any;
+  airPolution: AirList[];
 }
 
 @Injectable({
