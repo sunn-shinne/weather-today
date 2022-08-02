@@ -10,6 +10,7 @@
       leaflet 
       [leafletOptions]="options"
       [leafletBaseLayers]="baseLayers"
+      (leafletMapReady)="onMapReady($event)"
     ></div>
   </div>
 </div>
