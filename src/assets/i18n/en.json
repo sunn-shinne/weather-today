@@ -38,7 +38,7 @@
         "MAXIMUM_UV_INDEX": "Maximum UV Index",
         "MOON_PHASE": "Moon phase",
         "PRECIPITATION_AMOUNT": "Precipitation amount in millimeters",
-        "AVERAGE_TEMPERATURE": "Average temperature"
+        "AIR_QUALITY_INDEX": "Air Quality Index (1 - good; 5 - very poor)"
     },
     "UNITS": {
         "MM": "mm",

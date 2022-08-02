@@ -30,6 +30,10 @@ export class CityAutocompleteComponent implements OnDestroy, OnInit {
         this.generateSuggestions(value);
       }
     );
+
+    locationSerice.locationChange$.subscribe((place) => {
+      this.fieldFormControl.setValue(place.fullAddress);
+    });
   }
 
   ngOnInit(): void {

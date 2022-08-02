@@ -39,6 +39,7 @@
         "MOON_PHASE": "Фаза луны",
         "PRECIPITATION_AMOUNT": "Количество осадков в миллиметрах",
         "AVERAGE_TEMPERATURE": "Средняя температура"
+        "AIR_QUALITY_INDEX": "Индекс качества воздуха (1 - отлично; 5 - ужасно)"
     },
     "UNITS": {
         "MM": "мм",
