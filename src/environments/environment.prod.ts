@@ -11,5 +11,8 @@ export const environment = {
   },
   ipgeolocation: {
     API_key: '32e4db999ed54cdfaa2d17bf5eea3273',
+  },
+  weatherapi: {
+    API_key: 'ce26cda531d7423991d70413222507'
   }
 };

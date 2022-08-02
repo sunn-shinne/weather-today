@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CurrentWeather } from '../interfaces/CurrentWeather';
 import { Forecast } from '../interfaces/Forecast';
-import { AirPollution } from '../interfaces/AirPollution';
+import { AirList, AirPollution } from '../interfaces/AirPollution';
 import { RightNowWeather } from '../interfaces/RightNowWeather';
 import { SunriseSunset } from '../interfaces/SunriseSunset';
 import {
@@ -12,6 +12,7 @@ import {
   DayForecast,
 } from '../interfaces/DailyStepForecast';
 import { TranslateService } from '@ngx-translate/core';
+import { Hour, HourlyForecast } from '../interfaces/HourlyForecast';
 
 interface TodayWeather {
   rightNowWeather: RightNowWeather;
@@ -19,12 +20,18 @@ interface TodayWeather {
   sunriseSunsetTime: SunriseSunset;
 }
 
+interface ChartsData {
+  hourlyForecast: Hour[];
+  airPolution: any;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class WeatherService {
   todayWeather: TodayWeather = {} as TodayWeather;
-  DailyStepForecast!: DayForecast[];
+  dailyStepForecast!: DayForecast[];
+  chartsData: ChartsData = {} as ChartsData;
 
   constructor(private http: HttpClient, private translate: TranslateService) {}
 
@@ -179,6 +186,24 @@ export class WeatherService {
           days: numberOfDays,
           lang: this.translate.currentLang,
           key: environment.weatherbit.API_key,
+        },
+      }
+    );
+  }
+
+  getHourlyForecast(
+    latitude: string | number,
+    longitude: string | number,
+    numberOfDays: number = 5
+  ): Observable<HourlyForecast> {
+    return this.http.get<HourlyForecast>(
+      `https://api.weatherapi.com/v1/forecast.json`,
+      {
+        params: {
+          q: `${latitude},${longitude}`,
+          days: numberOfDays,
+          lang: this.translate.currentLang,
+          key: environment.weatherapi.API_key,
         },
       }
     );

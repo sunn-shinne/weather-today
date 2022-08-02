@@ -18,7 +18,7 @@ import { CityAutocompleteComponent } from './autocomplete/city-autocomplete.comp
 import { LangToggleComponent } from './lang-toggle/lang-toggle.component';
 import { NavsComponent } from './navs/navs.component';
 import { TodayWeatherComponent } from './pages/today-weather/today-weather.component';
-import { TomorrowWeatherComponent } from './pages/tomorrow-weather/tomorrow-weather.component';
+import { WeatherСhartsComponent } from './pages/weather-charts/weather-charts.component';
 import { SixteenDaysWeatherComponent } from './pages/sixteen-days-weather/sixteen-days-weather.component';
 import { RightNowWeatherComponent } from './right-now-weather/right-now-weather.component';
 
@@ -40,8 +40,11 @@ import { WeatherMapComponent } from './weather-map/weather-map.component';
 import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
+import { AirPollutionComponent } from './charts/air-pollution/air-pollution.component';
+import { AmountOfPrecipitationComponent } from './charts/amount-of-precipitation/amount-of-precipitation.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+
 registerLocaleData(localeRu);
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -56,7 +59,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LangToggleComponent,
     NavsComponent,
     TodayWeatherComponent,
-    TomorrowWeatherComponent,
+    WeatherСhartsComponent,
     RightNowWeatherComponent,
     SixteenDaysWeatherComponent,
     SunriseWeatherComponent,
@@ -66,7 +69,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     DailyStepForecastComponent,
     CapitalizePipe,
     LocalizedDatePipe,
+    AirPollutionComponent,
     WeatherMapComponent,
+    AmountOfPrecipitationComponent,
   ],
   imports: [
     BrowserAnimationsModule,
