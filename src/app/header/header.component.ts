@@ -6,7 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  changeLogo(): any {
+    let time = new Date().getHours();
+    switch (true) {
+      case (time >= 4 && time < 12):
+        return 'morning'
+      case (time >= 12 && time < 20):
+        return 'afternoon'
+      case (time >= 20 || time < 4):
+        return 'night'
+      default:
+    }
+  }
 }
