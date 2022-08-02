@@ -75,9 +75,12 @@ export class AmountOfPrecipitationComponent implements OnInit, DoCheck {
     if (!_.isEqual(this.currentForecast, newForecast)) {
       this.barChart.data.datasets[0].data = this.getData(newForecast);
       this.barChart.data.labels = this.getLabels(newForecast);
-      this.barChart.update();
       this.currentForecast = this.weatherService.hourlyForecast;
     }
+    this.barChart.data!.datasets[0].label = this.translateService.instant(
+      'INFO.PRECIPITATION_AMOUNT'
+    );
+    this.barChart.update();
   }
 
   getLabels(forecast: Hour[]): (string | null)[] {
