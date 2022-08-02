@@ -1,4 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { Subscription, switchMap } from 'rxjs';
 import { LocationService } from 'src/app/services/location.service';
 import { WeatherService } from 'src/app/services/weather.service';
@@ -6,7 +11,8 @@ import { WeatherService } from 'src/app/services/weather.service';
 @Component({
   selector: 'app-weather-charts',
   templateUrl: './weather-charts.component.html',
-  styleUrls: ['./weather-charts.component.scss']
+  styleUrls: ['./weather-charts.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WeatherСhartsComponent implements OnInit, OnDestroy {
   requestState: 'loading' | 'failed' | 'fulfilled' = 'loading';
@@ -16,7 +22,7 @@ export class WeatherСhartsComponent implements OnInit, OnDestroy {
   constructor(
     public weatherService: WeatherService,
     private locationService: LocationService
-    ) { }
+  ) {}
 
   ngOnInit(): void {
     this.hourlyForecastSub = this.locationService.locationChange$
@@ -30,8 +36,15 @@ export class WeatherСhartsComponent implements OnInit, OnDestroy {
         )
       )
       .subscribe({
-        next: ( value ) => {
-          this.weatherService.hourlyForecast = value.forecast.forecastday[0].hour.concat(value.forecast.forecastday[1].hour);
+        next: (value) => {
+          console.log('aaa');
+          // console.log(value.forecast.forecastday[0].hour);
+          // this.weatherService.hourlyForecast =
+          //   value.forecast.forecastday[0].hour.concat(
+          //     value.forecast.forecastday[1].hour
+          //   );
+          this.weatherService.hourlyForecast =
+            value.forecast.forecastday[0].hour;
           this.requestState = 'fulfilled';
         },
         error: () => (this.requestState = 'failed'),
@@ -41,5 +54,4 @@ export class WeatherСhartsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.hourlyForecastSub.unsubscribe();
   }
-
 }
