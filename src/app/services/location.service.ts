@@ -35,23 +35,26 @@ export class LocationService {
     this.locationChange$.next(place);
   }
 
-  repeatPlaceStreamValue() {
-    this.locationChange$.next(this.currentLocation);
+  getCurrentLocation() {
+    return this.getPlaceByCords(
+      this.currentLocation.cords.lat,
+      this.currentLocation.cords.lon
+    );
   }
 
   getPlaceByCords(latitude: number, longitude: number) {
     //const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&lang=${this.translate.currentLang}&limit=1&type=city&apiKey=${environment.geoapify.API_key}`;
-    return this.http.get('https://api.geoapify.com/v1/geocode/reverse',
-        {params:{
+    return this.http
+      .get('https://api.geoapify.com/v1/geocode/reverse', {
+        params: {
           lat: latitude,
           lon: longitude,
           lang: this.translate.currentLang,
           limit: '1',
           type: 'city',
-          apiKey: environment.geoapify.API_key
-          }
-        }
-      )
+          apiKey: environment.geoapify.API_key,
+        },
+      })
       .pipe(
         map((data: any) => this.generatePlaceItem(data.features[0].properties))
       );
@@ -59,30 +62,31 @@ export class LocationService {
 
   getPlaceSuggestions(text: string) {
     //const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${text}&lang=${this.translate.currentLang}&limit=10&type=city&apiKey=${environment.geoapify.API_key}`;
-    return this.http.get('https://api.geoapify.com/v1/geocode/autocomplete',
-      {params:{
-        text: text,
-        lang: this.translate.currentLang,
-        limit: '10',
-        type: 'city',
-        apiKey: environment.geoapify.API_key
-        }
-      }
-    ).pipe(
-      map((data: any) => {
-        const { features } = data;
-        const placeSuggestions = features
-          .map(
-            (item: { properties: GeocodingFeatureProperties }) =>
-              item.properties
-          )
-          .filter((properties: GeocodingFeatureProperties) => properties.city)
-          .map((properties: GeocodingFeatureProperties) =>
-            this.generatePlaceItem(properties)
-          );
-        return placeSuggestions;
+    return this.http
+      .get('https://api.geoapify.com/v1/geocode/autocomplete', {
+        params: {
+          text: text,
+          lang: this.translate.currentLang,
+          limit: '10',
+          type: 'city',
+          apiKey: environment.geoapify.API_key,
+        },
       })
-    );
+      .pipe(
+        map((data: any) => {
+          const { features } = data;
+          const placeSuggestions = features
+            .map(
+              (item: { properties: GeocodingFeatureProperties }) =>
+                item.properties
+            )
+            .filter((properties: GeocodingFeatureProperties) => properties.city)
+            .map((properties: GeocodingFeatureProperties) =>
+              this.generatePlaceItem(properties)
+            );
+          return placeSuggestions;
+        })
+      );
   }
 
   generatePlaceItem(properties: GeocodingFeatureProperties): PlaceSuggestion {
