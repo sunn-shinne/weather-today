@@ -42,6 +42,9 @@ import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 import { AirPollutionComponent } from './charts/air-pollution/air-pollution.component';
 import { AmountOfPrecipitationComponent } from './charts/amount-of-precipitation/amount-of-precipitation.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
 registerLocaleData(localeRu);
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -92,6 +95,12 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
     LeafletModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
