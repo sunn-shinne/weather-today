@@ -29,7 +29,7 @@ export class TodayWeatherComponent implements OnInit, OnDestroy {
                   this.weatherService.normolizeRightNowWeatherData(data)
                 )
               ),
-            hourlyForcast: this.weatherService.getForecastByCoordinates(
+            hourlyForecast: this.weatherService.getForecastByCoordinates(
               place.cords.lat,
               place.cords.lon
             ),
