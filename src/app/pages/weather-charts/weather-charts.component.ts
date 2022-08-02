@@ -42,6 +42,10 @@ export class WeatherСhartsComponent implements OnInit, OnDestroy {
           airPolution: this.weatherService.getForecastAirPollution(
             place.cords.lat,
             place.cords.lon
+          ).pipe(
+            map((data) => {
+              return data.list}
+            )
           ),
         })
         )

@@ -22,7 +22,7 @@ interface TodayWeather {
 
 interface ChartsData {
   hourlyForecast: Hour[];
-  airPolution: AirPollution;
+  airPolution: AirList[];
 }
 
 @Injectable({

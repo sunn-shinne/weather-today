@@ -37,7 +37,8 @@
         "CLOUD_COVERAGE": "Cloud coverage",
         "MAXIMUM_UV_INDEX": "Maximum UV Index",
         "MOON_PHASE": "Moon phase",
-        "PRECIPITATION_AMOUNT": "Precipitation amount in millimeters"
+        "PRECIPITATION_AMOUNT": "Precipitation amount in millimeters",
+        "AIR_QUALITY_INDEX": "Air Quality Index (1 - good; 5 - very poor)"
     },
     "UNITS": {
         "MM": "mm",
