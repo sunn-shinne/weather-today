@@ -4,7 +4,8 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { Subscription, switchMap } from 'rxjs';
+import { Subscription, switchMap, forkJoin, map } from 'rxjs';
+import { HourlyForecast } from 'src/app/interfaces/HourlyForecast';
 import { LocationService } from 'src/app/services/location.service';
 import { WeatherService } from 'src/app/services/weather.service';
 
@@ -28,17 +29,26 @@ export class WeatherСhartsComponent implements OnInit, OnDestroy {
     this.hourlyForecastSub = this.locationService.locationChange$
       .pipe(
         switchMap((place) =>
-          this.weatherService.getHourlyForecast(
+        forkJoin({
+          hourlyForecast: this.weatherService.getHourlyForecast(
             place.cords.lat,
             place.cords.lon,
             1
-          )
+          ).pipe(
+            map((data) => {
+              return data.forecast.forecastday[0].hour}
+            )
+          ),
+          airPolution: this.weatherService.getForecastAirPollution(
+            place.cords.lat,
+            place.cords.lon
+          ),
+        })
         )
       )
       .subscribe({
-        next: (value) => {
-          this.weatherService.chartsData.hourlyForecast =
-            value.forecast.forecastday[0].hour;
+        next: (chartsData) => {
+          this.weatherService.chartsData = chartsData;
           this.requestState = 'fulfilled';
         },
         error: () => (this.requestState = 'failed'),
