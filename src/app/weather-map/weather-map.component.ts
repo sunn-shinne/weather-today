@@ -54,9 +54,11 @@ export class WeatherMapComponent implements OnDestroy {
 
   constructor(public locationService: LocationService) {
     this.locationSub = locationService.locationChange$.subscribe((place) => {
-      const newLat = place.cords.lat;
-      const newLon = place.cords.lon;
-      this.map.panTo(new L.LatLng(newLat, newLon));
+      if (this.map) {
+        const newLat = place.cords.lat;
+        const newLon = place.cords.lon;
+        this.map.panTo(new L.LatLng(newLat, newLon));
+      }
     });
   }
 

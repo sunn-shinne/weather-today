@@ -1,10 +1,10 @@
 <div class="weather" [ngSwitch]="requestState">
   <ng-template ngSwitchCase="fulfilled">
     <div class="weather__chart">
-      <app-amount-of-precipitation></app-amount-of-precipitation>
+      <app-average-temperature></app-average-temperature>
     </div>
     <div class="weather__chart">
-      <app-average-temperature></app-average-temperature>
+      <app-amount-of-precipitation></app-amount-of-precipitation>
     </div>
      <div class="weather__chart">
       <app-air-pollution></app-air-pollution>
