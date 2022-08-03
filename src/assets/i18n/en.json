@@ -1,0 +1,52 @@
+{
+    "NAVS": {
+        "TODAY": "Today",
+        "TOMORROW": "Tomorrow",
+        "CHARTS": "Сharts",
+        "FOR_5_DAYS": "For 5 days",
+        "FOR_7_DAYS": "For 7 days",
+        "FOR_16_DAYS": "For 16 days"
+    },
+    "INPUT": {
+        "PLACEHOLDER": {
+            "CHOOSE_YOUR_CITY": "Choose your city"
+        }
+    },
+    "TITLE": {
+        "WEATHER_RIGHT_NOW_1": "Weather in the ",
+        "WEATHER_RIGHT_NOW_2": " right now",
+        "WEATHER_MAP": "Weather map for the",
+        "HOURLY_FORECAST": "Hourly forecast  for the "
+    },
+    "INFO": {
+        "AIR_TEMPERATURE": "Air temp",
+        "FEELS_LIKE": "Feels like",
+        "WIND": "Wind",
+        "PRESSURE": "Pressure",
+        "HUMIDITY": "Humidity",
+        "VISIBILITY": "Visibility",
+        "SUNRISE_TIME": "Sunrise time",
+        "SUNSET_TIME": "Sunset time",
+        "DAYLIGHT_DURATION": "Daylight duration",
+        "SOLAR_NOON": "Solar noon",
+        "SOLAR_ELEVATION_ANGLE": "Solar elevation angle",
+        "MAXIMUM_TEMPERATURE": "Maximum Temperature",
+        "MINIMUM_TEMPERATURE": "Minimum Temperature",
+        "PROBABILITY_OF_PRECIPITATION": "Probability of Precipitation",
+        "SNOW_DEPTH": "Snow Depth",
+        "CLOUD_COVERAGE": "Cloud coverage",
+        "MAXIMUM_UV_INDEX": "Maximum UV Index",
+        "MOON_PHASE": "Moon phase",
+        "PRECIPITATION_AMOUNT": "Precipitation amount in millimeters",
+        "AVERAGE_TEMPERATURE": "Average temperature",
+        "AIR_QUALITY_INDEX": "Air Quality Index (1 - good; 5 - very poor)"
+    },
+    "UNITS": {
+        "MM": "mm",
+        "MB": "mb",
+        "M_S": "m/s",
+        "M": "m",
+        "KM": "km",
+        "H": "h"
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "NAVS": {
+        "TODAY": "Сегодня",
+        "TOMORROW": "Завтра",
+        "CHARTS": "Графики",
+        "FOR_5_DAYS": "На 5 дней",
+        "FOR_7_DAYS": "На 7 дней",
+        "FOR_16_DAYS": "На 16 дней"
+    },
+    "INPUT": {
+        "PLACEHOLDER": {
+            "CHOOSE_YOUR_CITY": "Выберите свой город"
+        }
+    },
+    "TITLE": {
+        "WEATHER_RIGHT_NOW_1": "Погода в городе ",
+        "WEATHER_RIGHT_NOW_2": " сейчас",
+        "WEATHER_MAP": "Карта погоды для ",
+        "HOURLY_FORECAST": "Почасовой прогноз для города "
+    },
+    "INFO": {
+        "AIR_TEMPERATURE": "Температура",
+        "FEELS_LIKE": "Ощущается как",
+        "WIND": "Ветер",
+        "PRESSURE": "Давление",
+        "HUMIDITY": "Влажность",
+        "VISIBILITY": "Видимость",
+        "SUNRISE_TIME": "Восход",
+        "SUNSET_TIME": "Закат",
+        "DAYLIGHT_DURATION": "Долгота дня",
+        "SOLAR_NOON": "Полдень",
+        "SOLAR_ELEVATION_ANGLE": "Высота солнца над горизонтом",
+        "MAXIMUM_TEMPERATURE": "Максимальная температура",
+        "MINIMUM_TEMPERATURE": "Минимальная температура",
+        "PROBABILITY_OF_PRECIPITATION": "Вероятность осадков",
+        "SNOW_DEPTH": "Глубина снега",
+        "CLOUD_COVERAGE": "Облачное покрытие",
+        "MAXIMUM_UV_INDEX": "Максимальный УФ-индекс",
+        "MOON_PHASE": "Фаза луны",
+        "PRECIPITATION_AMOUNT": "Количество осадков в миллиметрах",
+        "AVERAGE_TEMPERATURE": "Средняя температура",
+        "AIR_QUALITY_INDEX": "Индекс качества воздуха (1 - отлично; 5 - ужасно)"
+    },
+    "UNITS": {
+        "MM": "мм",
+        "MB": "мбар",
+        "M_S": "м/с",
+        "M": "м",
+        "KM": "км",
+        "H": "ч"
+    }
+}

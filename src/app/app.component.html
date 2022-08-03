@@ -1,3 +1,6 @@
-<div>
-  <h1>WeatherToday</h1>
-</div>
+<app-header></app-header>
+<main [ngClass]=changeBackgroundColor()>
+  <app-navs></app-navs>
+  <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>

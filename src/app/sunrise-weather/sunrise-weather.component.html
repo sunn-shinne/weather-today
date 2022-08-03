@@ -1,0 +1,32 @@
+<div class="sunrise-weather">
+
+    <div class="sunrise-weather__img">
+        <img src="./../assets/img/weather-sunrise.png" alt="sunrise image">
+    </div>
+
+    <div class="sunrise-weather__info">
+        <hr>
+        <div class="sunrise-weather__card">
+            <div class="sunrise__time">
+                <img src="./../assets/img/sunrise-time.svg" alt="Sunrise time">
+                <span>{{'INFO.SUNRISE_TIME' | translate}} </span>
+                <span class="info__value">{{sunriseSunsetTime.sunrise}}</span>
+            </div>
+            <div class="sunset__time">
+                <img src="./../assets/img/sunset-time.svg" alt="Sunset time">
+                <span>{{'INFO.SUNSET_TIME' | translate}}</span>
+                <span class="info__value">{{sunriseSunsetTime.sunset}}</span>
+            </div>
+        </div>
+        <div class="sunrise-weather__info-main">
+            <div class="info__sun">
+                <span>{{'INFO.DAYLIGHT_DURATION' | translate}}</span>
+                <span class="info__value">{{sunriseSunsetTime.day_length}}{{'UNITS.H' | translate}}</span>
+            </div>
+            <div class="info__sun">
+                <span>{{'INFO.SOLAR_NOON' | translate}}</span>
+                <span class="info__value">{{sunriseSunsetTime.solar_noon}}</span>
+            </div>
+        </div>
+    </div>
+</div>

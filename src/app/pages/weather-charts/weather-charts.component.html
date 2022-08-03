@@ -1,0 +1,24 @@
+<div class="weather" [ngSwitch]="requestState">
+  <ng-template ngSwitchCase="fulfilled">
+    <div class="weather__chart">
+      <app-average-temperature></app-average-temperature>
+    </div>
+    <div class="weather__chart">
+      <app-amount-of-precipitation></app-amount-of-precipitation>
+    </div>
+     <div class="weather__chart">
+      <app-air-pollution></app-air-pollution>
+    </div>
+    <div class="weather__chart">
+      <app-humidity></app-humidity>
+    </div>
+  </ng-template>
+
+  <ng-template ngSwitchCase="loading">
+    <app-spinner class="spinner"></app-spinner>
+  </ng-template>
+
+  <ng-template ngSwitchCase="failed">
+    <div>Error. Try again</div>
+  </ng-template>
+</div>

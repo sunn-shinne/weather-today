@@ -1,0 +1,16 @@
+<form class="select-city">
+  <input class="select-city__input"
+        type="text"
+        [placeholder]='"INPUT.PLACEHOLDER.CHOOSE_YOUR_CITY" | translate'
+        [formControl]="fieldFormControl"
+        [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of searchOptions | async" 
+            [value]="option.fullAddress"
+            (onSelectionChange)="optionSelectionChange(option)"
+            >
+            {{option.fullAddress}}
+          </mat-option>
+        </mat-autocomplete>
+</form>

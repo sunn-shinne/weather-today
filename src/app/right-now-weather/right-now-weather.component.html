@@ -1,0 +1,62 @@
+<div class="right-now-weather">
+
+  <h2 class="right-now-weather__title">
+    {{ 'TITLE.WEATHER_RIGHT_NOW_1' | translate }}
+    <span class="title__city-name"> {{(locationService.locationChange$ | async)?.city}} </span> 
+    {{ 'TITLE.WEATHER_RIGHT_NOW_2' | translate }}
+  </h2>
+
+  <div class="right-now-weather__main-info">
+    <i class="wi main-info__icon" [ngClass]="forecast.icon_code || ''"></i>
+    <p class="main-info__text">{{forecast.description | capitalize}}</p>
+  </div>
+
+  <div class="right-now-weather__info">
+
+    <hr>
+    <div class="info__line">
+      <div class="info__line__item">
+        <span>{{'INFO.AIR_TEMPERATURE' | translate}}</span>
+        <span class="info__value">{{forecast.temp}}</span>
+      </div>
+  
+      <hr>
+      <div class="info__line__item">
+        <span>{{'INFO.FEELS_LIKE' | translate}}</span>
+        <span class="info__value">{{forecast.feels_like}}</span>
+      </div>
+    </div>
+
+    <hr>
+    <div class="info__line">
+      <div class="info__line__item">
+        <span>{{'INFO.WIND' | translate}}</span>
+        <div class="wind-info">
+          <i class="wi wi-wind wind__icon" [ngClass]="'towards-' + forecast.wind.deg + '-deg' || ''"></i>
+          <span class="info__value">{{forecast.wind.speed}} {{'UNITS.M_S' | translate}}</span>
+        </div>
+      </div>
+  
+      <hr>
+      <div class="info__line__item">
+        <span>{{'INFO.PRESSURE' | translate}}</span>
+        <span class="info__value">{{forecast.pressure}} {{'UNITS.MB' | translate}}</span>
+      </div>
+    </div>
+
+    <hr>
+    <div class="info__line">
+      <div class="info__line__item">
+        <span>{{'INFO.HUMIDITY' | translate}}</span>
+        <span class="info__value">{{forecast.humidity}}%</span>
+      </div>
+  
+      <hr>
+      <div class="info__line__item">
+        <span>{{'INFO.VISIBILITY' | translate}}</span>
+        <span class="info__value">{{forecast.visibility}} {{'UNITS.M' | translate}}</span>
+      </div>
+    </div>
+
+</div>
+

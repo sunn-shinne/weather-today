@@ -1,0 +1,26 @@
+.mat-button-toggle-group {
+  box-sizing: border-box;
+  height: 40px;
+
+  filter: var(--drop-shadow);
+  border-radius: 0;
+  border: 1px solid var(--secondary-dark);
+  
+  .mat-button-toggle {
+    display: flex;
+    align-items: center;
+
+    font-size: 14px;
+    color: var(--primary-dark);
+    
+    background-color: var(--secondary);
+    border: none;
+  }
+
+  .mat-button-toggle-checked {
+    color: var(--text-light);
+    font-weight: 600;
+
+    background-color: var(--primary);
+  }
+}

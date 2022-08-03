@@ -1,0 +1,21 @@
+.footer {
+  padding: 20px;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 12px;
+
+  .footer__links {
+    padding: 10px;
+
+    a {
+      padding: 5px;
+    } 
+  }
+}
+
+@media(max-width: 760px) {
+  .footer .footer__links a {
+    font-size: 10px;
+    padding: 5px;
+  }
+}

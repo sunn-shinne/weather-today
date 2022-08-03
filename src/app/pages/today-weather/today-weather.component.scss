@@ -1,0 +1,49 @@
+.weather {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+
+  width: 100%;
+
+  .weather__now {
+    flex: 1 1 30%;
+  }
+
+  .weather__sunrise {
+    flex: 1 1 30%;
+
+    background-color: var(--white);
+    filter: var(--drop-shadow);
+  }
+
+  .weather__by-hours{
+    flex: 100%;
+    max-width: 100%;
+  }
+
+  .weather__map {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+.spinner {
+  width: 100%;
+  height: 50vh;
+}
+
+@media (max-width: 720px) {
+  .weather {
+    .weather__now{
+      flex: 100% !important;
+      max-width: 100%;
+    }
+    
+    .weather__sunrise {
+      flex: 100% !important;
+      max-width: 100%;
+    }
+  }
+}
+
