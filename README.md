@@ -10,6 +10,7 @@
 - Weather map with layers
 - Language selection
 - Location change
+- Progressive web application
 
 ## Overview
 
