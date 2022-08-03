@@ -28,14 +28,15 @@
 @media (max-width: 700px) {
   .navs {
     display: flex;
+    margin-bottom: 20px;
 
     .navs__link  {
       flex-grow: 1;
 
-      font-size: 16px;
+      font-size: 14px;
 
       min-width: 30px;
-      padding: 3px 7px;
+      padding: 7px 7px;
     }
   }
 }
