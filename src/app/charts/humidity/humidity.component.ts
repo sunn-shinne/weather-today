@@ -2,7 +2,6 @@ import { DatePipe } from '@angular/common';
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Chart, registerables } from 'chart.js';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 import * as _ from 'lodash';
 import { Hour } from 'src/app/interfaces/HourlyForecast';
 import { WeatherService } from 'src/app/services/weather.service';
@@ -21,7 +20,6 @@ export class HumidityComponent implements OnInit, DoCheck {
     public translateService: TranslateService
   ) {
     Chart.register(...registerables);
-    Chart.register(ChartDataLabels);
   }
 
   ngOnInit(): void {
@@ -39,13 +37,7 @@ export class HumidityComponent implements OnInit, DoCheck {
           },
         ],
       },
-      plugins: [ChartDataLabels],
       options: {
-        plugins: {
-          datalabels: {
-            display: false,
-          },
-        },
         scales: {
           x: {
             grid: {
