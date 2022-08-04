@@ -48,5 +48,6 @@
         "M": "m",
         "KM": "km",
         "H": "h"
-    }
+    },
+    "ERROR_MESSAGE": "Error. Please, try to reload page."
 }
