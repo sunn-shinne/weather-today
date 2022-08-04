@@ -2,7 +2,6 @@ import { DatePipe } from '@angular/common';
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Chart, registerables } from 'chart.js';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 import * as _ from 'lodash';
 import { Hour } from 'src/app/interfaces/HourlyForecast';
 import { WeatherService } from 'src/app/services/weather.service';
@@ -10,15 +9,17 @@ import { WeatherService } from 'src/app/services/weather.service';
 @Component({
   selector: 'app-average-temperature',
   templateUrl: './average-temperature.component.html',
-  styleUrls: ['./average-temperature.component.scss']
+  styleUrls: ['./average-temperature.component.scss'],
 })
 export class AverageTemperatureComponent implements OnInit, DoCheck {
   currentForecast = this.weatherService.chartsData.hourlyForecast;
   lineChart!: Chart;
 
-  constructor(public weatherService: WeatherService, public translateService: TranslateService) {
+  constructor(
+    public weatherService: WeatherService,
+    public translateService: TranslateService
+  ) {
     Chart.register(...registerables);
-    Chart.register(ChartDataLabels);
   }
 
   ngOnInit(): void {
@@ -28,7 +29,8 @@ export class AverageTemperatureComponent implements OnInit, DoCheck {
         labels: this.getLabels(this.currentForecast),
         datasets: [
           {
-            label: this.translateService.instant('INFO.AVERAGE_TEMPERATURE') + " °C",
+            label:
+              this.translateService.instant('INFO.AVERAGE_TEMPERATURE') + ' °C',
             data: this.getData(this.currentForecast),
             backgroundColor: ['rgba(255, 233, 229)'],
             borderColor: ['rgba(246, 96, 73, .9)'],
@@ -38,7 +40,6 @@ export class AverageTemperatureComponent implements OnInit, DoCheck {
           },
         ],
       },
-      plugins: [ChartDataLabels],
       options: {
         hover: {
           intersect: false,
@@ -46,11 +47,6 @@ export class AverageTemperatureComponent implements OnInit, DoCheck {
         elements: {
           point: {
             radius: 0,
-          }
-        },
-        plugins: {
-          datalabels: {
-            display: false,
           },
         },
         scales: {
@@ -75,8 +71,8 @@ export class AverageTemperatureComponent implements OnInit, DoCheck {
       this.lineChart.data.labels = this.getLabels(newForecast);
       this.currentForecast = this.weatherService.chartsData.hourlyForecast;
     }
-    this.lineChart.data!.datasets[0].label = this.translateService.instant(
-      'INFO.AVERAGE_TEMPERATURE') + " °C";
+    this.lineChart.data!.datasets[0].label =
+      this.translateService.instant('INFO.AVERAGE_TEMPERATURE') + ' °C';
     this.lineChart.update();
   }
 

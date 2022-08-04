@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Subject, Subscription } from 'rxjs';
+import { catchError, of, Subject, Subscription } from 'rxjs';
 import { PlaceSuggestion } from '../interfaces/PlaceSuggestion';
 import { LocationService } from '../services/location.service';
 
@@ -11,7 +11,7 @@ import { LocationService } from '../services/location.service';
 })
 export class CityAutocompleteComponent implements OnDestroy, OnInit {
   searchOptions = new Subject<PlaceSuggestion[] | null>();
-  fieldFormControl: FormControl = new FormControl();
+  fieldFormControl = new FormControl<string>('');
   valueChangesSub: Subscription;
   choosenOption!: PlaceSuggestion;
   requestSub!: Subscription;
@@ -32,7 +32,7 @@ export class CityAutocompleteComponent implements OnDestroy, OnInit {
     );
 
     locationSerice.locationChange$.subscribe((place) => {
-      this.fieldFormControl.setValue(place.fullAddress);
+      this.fieldFormControl.patchValue(place.fullAddress);
     });
   }
 
@@ -42,6 +42,7 @@ export class CityAutocompleteComponent implements OnDestroy, OnInit {
         const cords = pos.coords;
         this.locationSerice
           .getPlaceByCords(cords.latitude, cords.longitude)
+          .pipe(catchError(() => of(this.locationSerice.defaultPlace)))
           .subscribe((currentPlace) => {
             this.fieldFormControl.setValue(currentPlace.fullAddress);
             this.optionSelectionChange(currentPlace);

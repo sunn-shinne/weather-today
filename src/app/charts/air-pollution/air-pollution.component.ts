@@ -1,7 +1,6 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { registerables } from 'node_modules/chart.js';
 import Chart from 'chart.js/auto';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { WeatherService } from 'src/app/services/weather.service';
 import { TranslateService } from '@ngx-translate/core';
 import { DatePipe } from '@angular/common';
@@ -11,7 +10,7 @@ import { AirList } from 'src/app/interfaces/AirPollution';
 @Component({
   selector: 'app-air-pollution',
   templateUrl: './air-pollution.component.html',
-  styleUrls: ['./air-pollution.component.scss']
+  styleUrls: ['./air-pollution.component.scss'],
 })
 export class AirPollutionComponent implements OnInit, DoCheck {
   currentAirForecast = this.weatherService.chartsData.airPolution;
@@ -22,7 +21,6 @@ export class AirPollutionComponent implements OnInit, DoCheck {
     public translateService: TranslateService
   ) {
     Chart.register(...registerables);
-    Chart.register(ChartDataLabels);
   }
 
   ngOnInit(): void {
@@ -39,13 +37,7 @@ export class AirPollutionComponent implements OnInit, DoCheck {
           },
         ],
       },
-      plugins: [ChartDataLabels],
       options: {
-        plugins: {
-          datalabels: {
-            display: false,
-          },
-        },
         scales: {
           x: {
             grid: {
@@ -78,18 +70,19 @@ export class AirPollutionComponent implements OnInit, DoCheck {
   getLabels(forecast: AirList[]): (string | null)[] {
     const datepipe: DatePipe = new DatePipe('en-US');
     let shortenedForecast: (string | null)[] = [];
-    for(let i = 0; i < 24; i += 2) {
-      shortenedForecast.push( datepipe.transform(new Date(forecast[i].dt * 1000), 'HH:mm'));
+    for (let i = 0; i < 24; i += 2) {
+      shortenedForecast.push(
+        datepipe.transform(new Date(forecast[i].dt * 1000), 'HH:mm')
+      );
     }
-    return shortenedForecast
+    return shortenedForecast;
   }
 
   getData(forecast: AirList[]): number[] {
     let shortenedForecast: number[] = [];
-    for(let i = 0; i < 24; i += 2) {
+    for (let i = 0; i < 24; i += 2) {
       shortenedForecast.push(forecast[i].main.aqi);
     }
-    return shortenedForecast
+    return shortenedForecast;
   }
-
 }
