@@ -33,6 +33,10 @@
   height: 50vh;
 }
 
+.error {
+  margin: 10vh auto;
+}
+
 @media (max-width: 720px) {
   .weather {
     .weather__now{

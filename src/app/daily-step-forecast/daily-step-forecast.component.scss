@@ -41,7 +41,7 @@
 
   tr:first-of-type{
     td:first-of-type{
-      color: #A94F4F;
+      color: var(--danger);
     }
   }
 }
