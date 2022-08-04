@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SixteenDaysWeatherComponent } from './pages/sixteen-days-weather/sixteen-days-weather.component';
-import { TodayWeatherComponent } from './pages/today-weather/today-weather.component';
-import { WeatherСhartsComponent } from './pages/weather-charts/weather-charts.component';
+import { SixteenDaysWeatherComponent } from './pages/sixteen-days-weather/sixteen-days-weather/sixteen-days-weather.component';
+import { TodayWeatherComponent } from './pages/today-weather/today-weather/today-weather.component';
+import { WeatherСhartsComponent } from './pages/weather-charts/weather-charts/weather-charts.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/today', pathMatch: 'full' },

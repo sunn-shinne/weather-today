@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { catchError, of, Subject, Subscription } from 'rxjs';
-import { PlaceSuggestion } from '../interfaces/PlaceSuggestion';
-import { LocationService } from '../services/location.service';
+import { PlaceSuggestion } from '../../../interfaces/PlaceSuggestion';
+import { LocationService } from '../../../services/location.service';
 
 @Component({
   selector: 'app-city-autocomplete',

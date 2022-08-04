@@ -13,14 +13,14 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { CityAutocompleteComponent } from './autocomplete/city-autocomplete.component';
-import { LangToggleComponent } from './lang-toggle/lang-toggle.component';
-import { NavsComponent } from './navs/navs.component';
-import { TodayWeatherComponent } from './pages/today-weather/today-weather.component';
-import { WeatherСhartsComponent } from './pages/weather-charts/weather-charts.component';
-import { SixteenDaysWeatherComponent } from './pages/sixteen-days-weather/sixteen-days-weather.component';
-import { RightNowWeatherComponent } from './right-now-weather/right-now-weather.component';
+import { HeaderComponent } from './core/header/header.component';
+import { CityAutocompleteComponent } from './core/components/autocomplete/city-autocomplete.component';
+import { LangToggleComponent } from './core/components/lang-toggle/lang-toggle.component';
+import { NavsComponent } from './core/components/navs/navs.component';
+import { TodayWeatherComponent } from './pages/today-weather/today-weather/today-weather.component';
+import { WeatherСhartsComponent } from './pages/weather-charts/weather-charts/weather-charts.component';
+import { SixteenDaysWeatherComponent } from './pages/sixteen-days-weather/sixteen-days-weather/sixteen-days-weather.component';
+import { RightNowWeatherComponent } from './weather/right-now-weather/right-now-weather.component';
 
 import {
   TranslateLoader,
@@ -28,25 +28,25 @@ import {
   TranslateService,
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { SunriseWeatherComponent } from './sunrise-weather/sunrise-weather.component';
-import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
+import { SunriseWeatherComponent } from './weather/sunrise-weather/sunrise-weather.component';
+import { HourlyForecastComponent } from './weather/hourly-forecast/hourly-forecast.component';
 import { SwiperModule } from 'swiper/angular';
-import { SpinnerComponent } from './spinner/spinner.component';
-import { FooterComponent } from './footer/footer.component';
-import { DailyStepForecastComponent } from './daily-step-forecast/daily-step-forecast.component';
+import { SpinnerComponent } from './core/spinner/spinner.component';
+import { FooterComponent } from './core/footer/footer.component';
+import { DailyStepForecastComponent } from './weather/daily-step-forecast/daily-step-forecast.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
-import { WeatherMapComponent } from './weather-map/weather-map.component';
+import { WeatherMapComponent } from './weather/weather-map/weather-map.component';
 
 import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
-import { AirPollutionComponent } from './charts/air-pollution/air-pollution.component';
-import { AmountOfPrecipitationComponent } from './charts/amount-of-precipitation/amount-of-precipitation.component';
+import { AirPollutionComponent } from './pages/weather-charts/charts/air-pollution/air-pollution.component';
+import { AmountOfPrecipitationComponent } from './pages/weather-charts/charts/amount-of-precipitation/amount-of-precipitation.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { AverageTemperatureComponent } from './charts/average-temperature/average-temperature.component';
-import { HumidityComponent } from './charts/humidity/humidity.component';
-import { ErrorMessageComponent } from './error-message/error-message.component';
+import { AverageTemperatureComponent } from './pages/weather-charts/charts/average-temperature/average-temperature.component';
+import { HumidityComponent } from './pages/weather-charts/charts/humidity/humidity.component';
+import { ErrorMessageComponent } from './core/error-message/error-message.component';
 
 registerLocaleData(localeRu);
 

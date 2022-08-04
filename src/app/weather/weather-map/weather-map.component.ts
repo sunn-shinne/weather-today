@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { LocationService } from '../services/location.service';
+import { LocationService } from '../../services/location.service';
 import { environment } from 'src/environments/environment';
 
 import * as L from 'leaflet';
