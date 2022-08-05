@@ -1,0 +1,19 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .error__img {
+    width: 96px;
+    height: 96px;
+    margin: 10px auto;
+
+    background: center/auto 100% no-repeat url("../../../assets/img/error-cloud.svg") ;
+  }
+
+  .error__message {
+    text-align: center;
+    font-weight: 600;
+    color: var(--danger);
+  }
+}

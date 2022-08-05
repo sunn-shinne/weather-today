@@ -1,0 +1,43 @@
+.select-city {
+  position: relative;
+  display: flex;
+
+  min-width: 150px;
+  max-width: 350px;
+
+  height: 40px;
+  margin-right: 10px;
+
+  filter: var(--drop-shadow);
+
+  .mat-autocomplete-trigger {
+    flex-grow: 1;
+
+    box-sizing: border-box;
+    padding: 7px 20px 7px;
+
+    outline: none;
+    border: 1px solid var(--secondary-dark);
+  }
+}
+
+.mat-option {
+  color: var(--text-dark);
+  font-size: 14px;
+  padding: 0 22px;
+  
+  background-color: var(--white);
+}
+
+.mat-option:hover {
+  background-color: var(--secondary);
+}
+
+.select-city::after {
+  position: absolute;
+  top: 7px;
+  bottom: 0;
+  right: 5px;
+  
+  content: url('../../../../assets/img/location.svg');
+}

@@ -36,6 +36,7 @@
   --secondary-dark: #A4A4A4;
   --text-dark: #2C2C2C;
   --text-light: #FFFFFF;
+  --danger: #A94F4F;
 
   --drop-shadow: drop-shadow(3px 5px 8px rgba(0, 0, 0, 0.2));
 
@@ -91,4 +92,19 @@ html {
   p {
     font-size: 14px;
   }
+}
+
+.theme-morning {
+  background-color: var(--morning);
+  background: linear-gradient(180deg, rgba(252,221,240,1) 0%, rgba(212,197,255,1) 66%, rgba(125,182,255,1) 100%);
+}
+
+.theme-afternoon {
+  background-color: var(--afternoon);
+  background: linear-gradient(180deg, rgba(187,211,248,1) 41%, rgba(255,225,165,1) 85%, rgba(255,223,153,1) 100%);
+}
+
+.theme-night{
+  background-color: var(--night);
+  background: linear-gradient(180deg, rgba(186,189,255,1) 12%, rgba(175,170,236,1) 70%, rgba(132,105,172,1) 100%);
 }
