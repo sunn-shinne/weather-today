@@ -6,9 +6,9 @@ import SwiperCore, {
   Virtual,
   SwiperOptions,
 } from 'swiper';
-import { WeatherService } from '../services/weather.service';
-import { Forecast } from '../interfaces/Forecast';
-import { LocationService } from '../services/location.service';
+import { WeatherService } from '../../services/weather.service';
+import { Forecast } from '../../interfaces/Forecast';
+import { LocationService } from '../../services/location.service';
 
 SwiperCore.use([Pagination, Navigation, Virtual]);
 

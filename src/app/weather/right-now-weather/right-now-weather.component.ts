@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RightNowWeather } from '../interfaces/RightNowWeather';
-import { LocationService } from '../services/location.service';
-import { WeatherService } from '../services/weather.service';
+import { RightNowWeather } from '../../interfaces/RightNowWeather';
+import { LocationService } from '../../services/location.service';
+import { WeatherService } from '../../services/weather.service';
 
 @Component({
   selector: 'app-right-now-weather',

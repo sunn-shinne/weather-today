@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SunriseSunset } from '../interfaces/SunriseSunset';
-import { LocationService } from '../services/location.service';
-import { WeatherService } from '../services/weather.service';
+import { SunriseSunset } from '../../interfaces/SunriseSunset';
+import { LocationService } from '../../services/location.service';
+import { WeatherService } from '../../services/weather.service';
 
 @Component({
   selector: 'app-sunrise-weather',

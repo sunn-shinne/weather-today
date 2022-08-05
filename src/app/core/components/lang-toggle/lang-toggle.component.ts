@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { LocationService } from '../services/location.service';
+import { LocationService } from '../../../services/location.service';
 
 @Component({
   selector: 'app-lang-toggle',
