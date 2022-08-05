@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -10,7 +9,6 @@ import { CityAutocompleteComponent } from './core/components/autocomplete/city-a
 import { LangToggleComponent } from './core/components/lang-toggle/lang-toggle.component';
 import { NavsComponent } from './core/components/navs/navs.component';
 
-
 import {
   TranslateLoader,
   TranslateModule,
@@ -18,7 +16,7 @@ import {
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SwiperModule } from 'swiper/angular';
-import { FooterComponent } from './core/footer/footer.component'
+import { FooterComponent } from './core/footer/footer.component';
 
 import { CommonModule, registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
@@ -46,13 +44,13 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     CommonModule,
+    AppRoutingModule,
     SixteenDaysWeatherModule,
     TodayWeatherModule,
     WeatherChartsModule,
     SharedModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule,
     SwiperModule,
     TranslateModule.forRoot({
       loader: {
@@ -65,13 +63,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
-
   ],
-  exports: [
-    TranslateModule,
-  ],
+  exports: [TranslateModule],
   providers: [],
   bootstrap: [AppComponent],
 })
